@@ -524,6 +524,43 @@ a {
     font-style: italic;
 }
 
+.product-description {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.product-benefits {
+    margin-bottom: 20px;
+}
+
+.product-benefits ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.product-benefits li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: 0.8rem;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+.product-benefits li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-teal);
+    border-radius: 50%;
+}
+
 .product-ingredients {
     display: flex;
     flex-wrap: wrap;
