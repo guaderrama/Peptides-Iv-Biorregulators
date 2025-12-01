@@ -7,8 +7,70 @@
     <meta name="description" content="Professional regenerative medicine solutions. Explore our catalog of peptides, bioregulators, and IV therapies for optimal health and recovery.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+    <style>
+        /* Language Toggle Styles */
+        .lang-toggle {
+            position: fixed;
+            top: 90px;
+            right: 24px;
+            z-index: 999;
+            display: flex;
+            background: var(--white);
+            border-radius: 50px;
+            padding: 4px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition-fast);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-ocean);
+            color: var(--white);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--primary-blue);
+        }
+
+        /* Hide elements based on language */
+        [data-lang="es"] { display: none; }
+        html[lang="es"] [data-lang="en"] { display: none; }
+        html[lang="es"] [data-lang="es"] { display: block; }
+        html[lang="es"] span[data-lang="es"],
+        html[lang="es"] a[data-lang="es"] { display: inline; }
+
+        @media (max-width: 768px) {
+            .lang-toggle {
+                top: 80px;
+                right: 16px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ES</button>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <div class="container">
@@ -22,11 +84,11 @@
                     <span class="logo-text">RegenMed</span>
                 </a>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="#peptides">Peptides</a></li>
-                    <li><a href="#bioregulators">Bioregulators</a></li>
-                    <li><a href="#iv-therapy">IV Therapy</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="index.html" class="active" data-lang="en">Home</a><a href="index.html" class="active" data-lang="es">Inicio</a></li>
+                    <li><a href="#peptides" data-lang="en">Peptides</a><a href="#peptides" data-lang="es">Péptidos</a></li>
+                    <li><a href="products/bioregulators.html" data-lang="en">Bioregulators</a><a href="products/bioregulators.html" data-lang="es">Biorreguladores</a></li>
+                    <li><a href="#iv-therapy" data-lang="en">IV Therapy</a><a href="#iv-therapy" data-lang="es">Terapia IV</a></li>
+                    <li><a href="#contact" data-lang="en">Contact</a><a href="#contact" data-lang="es">Contacto</a></li>
                 </ul>
                 <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
                     <span></span>
@@ -40,13 +102,21 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <span class="hero-badge">Advanced Regenerative Medicine</span>
-            <h1>Your Path to <span>Optimal Health</span></h1>
+            <span class="hero-badge">
+                <span data-lang="en">Advanced Regenerative Medicine</span>
+                <span data-lang="es">Medicina Regenerativa Avanzada</span>
+            </span>
+            <h1>
+                <span data-lang="en">Your Path to <span>Optimal Health</span></span>
+                <span data-lang="es">Tu Camino hacia la <span>Salud Óptima</span></span>
+            </h1>
             <p class="hero-subtitle">
-                Discover cutting-edge peptides, bioregulators, and IV therapies designed to support your body's natural healing and regeneration processes.
+                <span data-lang="en">Discover cutting-edge peptides, bioregulators, and IV therapies designed to support your body's natural healing and regeneration processes.</span>
+                <span data-lang="es">Descubre péptidos de vanguardia, biorreguladores y terapias IV diseñadas para apoyar los procesos naturales de curación y regeneración de tu cuerpo.</span>
             </p>
             <a href="#categories" class="btn btn-primary">
-                Explore Our Catalog
+                <span data-lang="en">Explore Our Catalog</span>
+                <span data-lang="es">Explorar Nuestro Catálogo</span>
                 <svg class="btn-icon" viewBox="0 0 24 24">
                     <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                 </svg>
@@ -58,8 +128,14 @@
     <section class="categories" id="categories">
         <div class="container">
             <div class="section-header">
-                <h2>Our Categories</h2>
-                <p>Explore our comprehensive range of regenerative medicine solutions tailored to support your health goals.</p>
+                <h2>
+                    <span data-lang="en">Our Categories</span>
+                    <span data-lang="es">Nuestras Categorías</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Explore our comprehensive range of regenerative medicine solutions tailored to support your health goals.</span>
+                    <span data-lang="es">Explora nuestra gama completa de soluciones de medicina regenerativa diseñadas para apoyar tus objetivos de salud.</span>
+                </p>
             </div>
 
             <div class="categories-grid">
@@ -71,15 +147,25 @@
                             <circle cx="12" cy="12" r="3"/>
                         </svg>
                     </div>
-                    <h3>Peptides</h3>
-                    <p>Advanced peptide blends for tissue repair, recovery, and regeneration. Scientifically formulated for optimal results.</p>
+                    <h3>
+                        <span data-lang="en">Peptides</span>
+                        <span data-lang="es">Péptidos</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Advanced peptide blends for tissue repair, recovery, and regeneration. Scientifically formulated for optimal results.</span>
+                        <span data-lang="es">Mezclas de péptidos avanzadas para reparación de tejidos, recuperación y regeneración. Formuladas científicamente para resultados óptimos.</span>
+                    </p>
                     <span class="category-count">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                         </svg>
-                        1 Product Available
+                        <span data-lang="en">1 Product Available</span>
+                        <span data-lang="es">1 Producto Disponible</span>
                     </span>
-                    <a href="#peptides-products" class="btn btn-primary">View Products</a>
+                    <a href="#peptides-products" class="btn btn-primary">
+                        <span data-lang="en">View Products</span>
+                        <span data-lang="es">Ver Productos</span>
+                    </a>
                 </div>
 
                 <!-- Bioregulators Category -->
@@ -89,15 +175,25 @@
                             <path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/>
                         </svg>
                     </div>
-                    <h3>Bioregulators</h3>
-                    <p>Natural peptide bioregulators that support specific organ systems and promote cellular health and longevity.</p>
+                    <h3>
+                        <span data-lang="en">Bioregulators</span>
+                        <span data-lang="es">Biorreguladores</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Natural peptide bioregulators that support specific organ systems and promote cellular health and longevity.</span>
+                        <span data-lang="es">Biorreguladores peptídicos naturales que apoyan sistemas de órganos específicos y promueven la salud celular y la longevidad.</span>
+                    </p>
                     <span class="category-count">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                         </svg>
-                        Coming Soon
+                        <span data-lang="en">Learn More</span>
+                        <span data-lang="es">Saber Más</span>
                     </span>
-                    <button class="btn btn-secondary" disabled>Coming Soon</button>
+                    <a href="products/bioregulators.html" class="btn btn-primary">
+                        <span data-lang="en">Explore</span>
+                        <span data-lang="es">Explorar</span>
+                    </a>
                 </div>
 
                 <!-- IV Therapy Category -->
@@ -107,15 +203,25 @@
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
                         </svg>
                     </div>
-                    <h3>IV Therapy</h3>
-                    <p>Intravenous nutrient therapies for rapid absorption and maximum bioavailability. Customized for your needs.</p>
+                    <h3>
+                        <span data-lang="en">IV Therapy</span>
+                        <span data-lang="es">Terapia IV</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Intravenous nutrient therapies for rapid absorption and maximum bioavailability. Customized for your needs.</span>
+                        <span data-lang="es">Terapias de nutrientes intravenosas para absorción rápida y máxima biodisponibilidad. Personalizadas según tus necesidades.</span>
+                    </p>
                     <span class="category-count">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
                             <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                         </svg>
-                        Coming Soon
+                        <span data-lang="en">Coming Soon</span>
+                        <span data-lang="es">Próximamente</span>
                     </span>
-                    <button class="btn btn-secondary" disabled>Coming Soon</button>
+                    <button class="btn btn-secondary" disabled>
+                        <span data-lang="en">Coming Soon</span>
+                        <span data-lang="es">Próximamente</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -125,23 +231,38 @@
     <section class="products" id="peptides-products">
         <div class="container">
             <div class="section-header">
-                <h2>Peptide Products</h2>
-                <p>Our premium peptide blends are designed to support your body's natural healing mechanisms.</p>
+                <h2>
+                    <span data-lang="en">Peptide Products</span>
+                    <span data-lang="es">Productos de Péptidos</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Our premium peptide blends are designed to support your body's natural healing mechanisms.</span>
+                    <span data-lang="es">Nuestras mezclas de péptidos premium están diseñadas para apoyar los mecanismos naturales de curación de tu cuerpo.</span>
+                </p>
             </div>
 
             <div class="products-grid">
                 <!-- Wolverine Product Card -->
                 <div class="product-card">
                     <div class="product-image">
-                        <span class="product-badge">Featured</span>
+                        <span class="product-badge">
+                            <span data-lang="en">Featured</span>
+                            <span data-lang="es">Destacado</span>
+                        </span>
                         <svg viewBox="0 0 24 24">
                             <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
                         </svg>
                     </div>
                     <div class="product-content">
-                        <span class="product-category">Peptide Blend</span>
+                        <span class="product-category">
+                            <span data-lang="en">Peptide Blend</span>
+                            <span data-lang="es">Mezcla de Péptidos</span>
+                        </span>
                         <h4>Wolverine Cu Blend</h4>
-                        <p class="product-tagline">"Fast Regeneration Package"</p>
+                        <p class="product-tagline">
+                            <span data-lang="en">"Fast Regeneration Package"</span>
+                            <span data-lang="es">"Paquete de Regeneración Rápida"</span>
+                        </p>
                         <div class="product-ingredients">
                             <span class="ingredient-tag">GHK-Cu 50mg</span>
                             <span class="ingredient-tag">BPC-157 10mg</span>
@@ -149,8 +270,14 @@
                             <span class="ingredient-tag">KPV 10mg</span>
                         </div>
                         <div class="product-footer">
-                            <span class="product-price">Contact <span>for pricing</span></span>
-                            <a href="products/wolverine.html" class="btn btn-primary">View Details</a>
+                            <span class="product-price">
+                                <span data-lang="en">Contact <span>for pricing</span></span>
+                                <span data-lang="es">Contactar <span>por precio</span></span>
+                            </span>
+                            <a href="products/wolverine.html" class="btn btn-primary">
+                                <span data-lang="en">View Details</span>
+                                <span data-lang="es">Ver Detalles</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -158,21 +285,36 @@
                 <!-- Placeholder for future products -->
                 <div class="product-card" style="opacity: 0.6;">
                     <div class="product-image" style="background: linear-gradient(135deg, #64748b 0%, #94a3b8 100%);">
-                        <span class="product-badge">Coming Soon</span>
+                        <span class="product-badge">
+                            <span data-lang="en">Coming Soon</span>
+                            <span data-lang="es">Próximamente</span>
+                        </span>
                         <svg viewBox="0 0 24 24">
                             <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                         </svg>
                     </div>
                     <div class="product-content">
-                        <span class="product-category">Peptide Blend</span>
-                        <h4>More Products Coming</h4>
-                        <p class="product-tagline">Stay tuned for new additions</p>
+                        <span class="product-category">
+                            <span data-lang="en">Peptide Blend</span>
+                            <span data-lang="es">Mezcla de Péptidos</span>
+                        </span>
+                        <h4>
+                            <span data-lang="en">More Products Coming</span>
+                            <span data-lang="es">Más Productos Próximamente</span>
+                        </h4>
+                        <p class="product-tagline">
+                            <span data-lang="en">Stay tuned for new additions</span>
+                            <span data-lang="es">Mantente atento a nuevas adiciones</span>
+                        </p>
                         <div class="product-ingredients">
                             <span class="ingredient-tag">TBA</span>
                         </div>
                         <div class="product-footer">
                             <span class="product-price">TBA</span>
-                            <button class="btn btn-secondary" disabled>Coming Soon</button>
+                            <button class="btn btn-secondary" disabled>
+                                <span data-lang="en">Coming Soon</span>
+                                <span data-lang="es">Próximamente</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -184,8 +326,14 @@
     <section class="benefits-section">
         <div class="container">
             <div class="section-header">
-                <h2>Why Choose Regenerative Medicine?</h2>
-                <p>Modern science meets natural healing for optimal health outcomes.</p>
+                <h2>
+                    <span data-lang="en">Why Choose Regenerative Medicine?</span>
+                    <span data-lang="es">¿Por Qué Elegir Medicina Regenerativa?</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Modern science meets natural healing for optimal health outcomes.</span>
+                    <span data-lang="es">La ciencia moderna se encuentra con la curación natural para resultados de salud óptimos.</span>
+                </p>
             </div>
 
             <div class="benefits-grid">
@@ -195,8 +343,14 @@
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-                    <h4>Evidence-Based</h4>
-                    <p>Our products are selected based on scientific research and clinical evidence.</p>
+                    <h4>
+                        <span data-lang="en">Evidence-Based</span>
+                        <span data-lang="es">Basado en Evidencia</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Our products are selected based on scientific research and clinical evidence.</span>
+                        <span data-lang="es">Nuestros productos son seleccionados basándose en investigación científica y evidencia clínica.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -205,8 +359,14 @@
                             <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/>
                         </svg>
                     </div>
-                    <h4>Premium Quality</h4>
-                    <p>Highest purity standards and rigorous quality control for every product.</p>
+                    <h4>
+                        <span data-lang="en">Premium Quality</span>
+                        <span data-lang="es">Calidad Premium</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Highest purity standards and rigorous quality control for every product.</span>
+                        <span data-lang="es">Los más altos estándares de pureza y riguroso control de calidad para cada producto.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -215,8 +375,14 @@
                             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
                         </svg>
                     </div>
-                    <h4>Safe & Trusted</h4>
-                    <p>Professional guidance and support throughout your regenerative journey.</p>
+                    <h4>
+                        <span data-lang="en">Safe & Trusted</span>
+                        <span data-lang="es">Seguro y Confiable</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Professional guidance and support throughout your regenerative journey.</span>
+                        <span data-lang="es">Orientación profesional y apoyo a lo largo de tu viaje regenerativo.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -225,8 +391,14 @@
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
                         </svg>
                     </div>
-                    <h4>Expert Support</h4>
-                    <p>Access to professional consultations and personalized recommendations.</p>
+                    <h4>
+                        <span data-lang="en">Expert Support</span>
+                        <span data-lang="es">Soporte Experto</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Access to professional consultations and personalized recommendations.</span>
+                        <span data-lang="es">Acceso a consultas profesionales y recomendaciones personalizadas.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -237,8 +409,14 @@
         <div class="container">
             <div class="why-content">
                 <div class="why-text">
-                    <h2>Ready to Start Your Regenerative Journey?</h2>
-                    <p>Our team is here to help you understand which products may be right for your health goals. Schedule a consultation to learn more.</p>
+                    <h2>
+                        <span data-lang="en">Ready to Start Your Regenerative Journey?</span>
+                        <span data-lang="es">¿Listo para Comenzar tu Viaje Regenerativo?</span>
+                    </h2>
+                    <p>
+                        <span data-lang="en">Our team is here to help you understand which products may be right for your health goals. Schedule a consultation to learn more.</span>
+                        <span data-lang="es">Nuestro equipo está aquí para ayudarte a entender qué productos pueden ser adecuados para tus objetivos de salud. Agenda una consulta para saber más.</span>
+                    </p>
 
                     <ul class="why-list">
                         <li>
@@ -248,8 +426,14 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h5>Personalized Consultation</h5>
-                                <p>Discuss your health goals with our specialists.</p>
+                                <h5>
+                                    <span data-lang="en">Personalized Consultation</span>
+                                    <span data-lang="es">Consulta Personalizada</span>
+                                </h5>
+                                <p>
+                                    <span data-lang="en">Discuss your health goals with our specialists.</span>
+                                    <span data-lang="es">Discute tus objetivos de salud con nuestros especialistas.</span>
+                                </p>
                             </div>
                         </li>
                         <li>
@@ -259,8 +443,14 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h5>Custom Protocols</h5>
-                                <p>Tailored treatment plans for your specific needs.</p>
+                                <h5>
+                                    <span data-lang="en">Custom Protocols</span>
+                                    <span data-lang="es">Protocolos Personalizados</span>
+                                </h5>
+                                <p>
+                                    <span data-lang="en">Tailored treatment plans for your specific needs.</span>
+                                    <span data-lang="es">Planes de tratamiento adaptados a tus necesidades específicas.</span>
+                                </p>
                             </div>
                         </li>
                         <li>
@@ -270,8 +460,14 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h5>Ongoing Support</h5>
-                                <p>Continuous guidance throughout your journey.</p>
+                                <h5>
+                                    <span data-lang="en">Ongoing Support</span>
+                                    <span data-lang="es">Soporte Continuo</span>
+                                </h5>
+                                <p>
+                                    <span data-lang="en">Continuous guidance throughout your journey.</span>
+                                    <span data-lang="es">Orientación continua a lo largo de tu viaje.</span>
+                                </p>
                             </div>
                         </li>
                     </ul>
@@ -282,8 +478,14 @@
                         <svg viewBox="0 0 24 24">
                             <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                         </svg>
-                        <h3>Contact Us</h3>
-                        <p>Schedule your consultation today and discover the power of regenerative medicine.</p>
+                        <h3>
+                            <span data-lang="en">Contact Us</span>
+                            <span data-lang="es">Contáctanos</span>
+                        </h3>
+                        <p>
+                            <span data-lang="en">Schedule your consultation today and discover the power of regenerative medicine.</span>
+                            <span data-lang="es">Agenda tu consulta hoy y descubre el poder de la medicina regenerativa.</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -296,41 +498,70 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="logo-text">RegenMed</span>
-                    <p>Advanced regenerative medicine solutions for optimal health and recovery. Professional-grade peptides, bioregulators, and IV therapies.</p>
+                    <p>
+                        <span data-lang="en">Advanced regenerative medicine solutions for optimal health and recovery. Professional-grade peptides, bioregulators, and IV therapies.</span>
+                        <span data-lang="es">Soluciones avanzadas de medicina regenerativa para una salud y recuperación óptimas. Péptidos, biorreguladores y terapias IV de grado profesional.</span>
+                    </p>
                 </div>
                 <div class="footer-links">
-                    <h5>Categories</h5>
+                    <h5>
+                        <span data-lang="en">Categories</span>
+                        <span data-lang="es">Categorías</span>
+                    </h5>
                     <ul>
-                        <li><a href="#peptides">Peptides</a></li>
-                        <li><a href="#bioregulators">Bioregulators</a></li>
-                        <li><a href="#iv-therapy">IV Therapy</a></li>
+                        <li><a href="#peptides"><span data-lang="en">Peptides</span><span data-lang="es">Péptidos</span></a></li>
+                        <li><a href="products/bioregulators.html"><span data-lang="en">Bioregulators</span><span data-lang="es">Biorreguladores</span></a></li>
+                        <li><a href="#iv-therapy"><span data-lang="en">IV Therapy</span><span data-lang="es">Terapia IV</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h5>Products</h5>
+                    <h5>
+                        <span data-lang="en">Products</span>
+                        <span data-lang="es">Productos</span>
+                    </h5>
                     <ul>
                         <li><a href="products/wolverine.html">Wolverine Cu Blend</a></li>
-                        <li><a href="#">More Coming Soon</a></li>
+                        <li><a href="#"><span data-lang="en">More Coming Soon</span><span data-lang="es">Más Próximamente</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h5>Support</h5>
+                    <h5>
+                        <span data-lang="en">Support</span>
+                        <span data-lang="es">Soporte</span>
+                    </h5>
                     <ul>
-                        <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#contact"><span data-lang="en">Contact Us</span><span data-lang="es">Contáctanos</span></a></li>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Consultations</a></li>
+                        <li><a href="#"><span data-lang="en">Consultations</span><span data-lang="es">Consultas</span></a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 RegenMed. All rights reserved.</p>
-                <p class="footer-disclaimer">Disclaimer: These products are for research and educational purposes only. Consult with a qualified healthcare provider before starting any new health program. Results may vary.</p>
+                <p>&copy; 2024 RegenMed. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></p>
+                <p class="footer-disclaimer">
+                    <span data-lang="en">Disclaimer: These products are for research and educational purposes only. Consult with a qualified healthcare provider before starting any new health program. Results may vary.</span>
+                    <span data-lang="es">Aviso: Estos productos son solo para fines de investigación y educación. Consulte con un proveedor de atención médica calificado antes de comenzar cualquier nuevo programa de salud. Los resultados pueden variar.</span>
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
+        // Language Toggle
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            setLanguage(savedLang);
+        });
+
         // Mobile Navigation Toggle
         function toggleNav() {
             const navLinks = document.getElementById('navLinks');

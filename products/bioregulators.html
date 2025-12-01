@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bioregulators | Peptide Bioregulators for Health & Regeneration</title>
+    <meta name="description" content="Learn about peptide bioregulators - cellular master keys that support gene expression, protein synthesis, and natural body regeneration.">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+    <style>
+        /* Language Toggle Styles */
+        .lang-toggle {
+            position: fixed;
+            top: 90px;
+            right: 24px;
+            z-index: 999;
+            display: flex;
+            background: var(--white);
+            border-radius: 50px;
+            padding: 4px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition-fast);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-ocean);
+            color: var(--white);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--primary-blue);
+        }
+
+        /* Hide elements based on language */
+        [data-lang="es"] { display: none; }
+        html[lang="es"] [data-lang="en"] { display: none; }
+        html[lang="es"] [data-lang="es"] { display: block; }
+        html[lang="es"] span[data-lang="es"],
+        html[lang="es"] a[data-lang="es"] { display: inline; }
+
+        /* Mechanism Steps */
+        .mechanism-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .step-card {
+            background: var(--gradient-card);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            border: 1px solid var(--medium-gray);
+            position: relative;
+            transition: var(--transition-normal);
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -16px;
+            left: 24px;
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-ocean);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-card h4 {
+            margin-top: 16px;
+            margin-bottom: 12px;
+            color: var(--primary-blue);
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* Organ Examples */
+        .organs-section {
+            padding: var(--section-padding) 0;
+            background: var(--gradient-sky);
+        }
+
+        .organs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .organ-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition-normal);
+            border: 1px solid transparent;
+        }
+
+        .organ-card:hover {
+            border-color: var(--primary-blue);
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .organ-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-glow);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .organ-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--primary-blue);
+        }
+
+        .organ-card h5 {
+            font-size: 1rem;
+            color: var(--primary-blue);
+            margin-bottom: 4px;
+        }
+
+        .organ-card p {
+            font-size: 0.85rem;
+            margin-bottom: 0;
+        }
+
+        /* Practical Example */
+        .example-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+
+        .example-box {
+            background: var(--gradient-glow);
+            border-radius: var(--radius-xl);
+            padding: 48px;
+            border-left: 4px solid var(--primary-blue);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .example-box h3 {
+            color: var(--primary-blue);
+            margin-bottom: 16px;
+        }
+
+        .example-box p {
+            font-size: 1.05rem;
+            margin-bottom: 0;
+        }
+
+        /* Research Section */
+        .research-section {
+            padding: var(--section-padding) 0;
+            background: var(--gradient-sky);
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .research-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            padding: 32px;
+            box-shadow: var(--shadow-lg);
+            border-top: 4px solid var(--primary-blue);
+        }
+
+        .research-card h4 {
+            color: var(--primary-blue);
+            margin-bottom: 16px;
+        }
+
+        .research-card p {
+            font-size: 0.95rem;
+        }
+
+        /* Info Hero */
+        .info-hero {
+            padding: 140px 0 60px;
+            background: linear-gradient(180deg, var(--off-white) 0%, var(--white) 100%);
+            text-align: center;
+        }
+
+        .info-hero h1 {
+            margin-bottom: 16px;
+        }
+
+        .info-hero .subtitle {
+            font-size: 1.25rem;
+            color: var(--primary-blue);
+            margin-bottom: 32px;
+        }
+
+        .info-hero .description {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* What Are Section */
+        .what-are-section {
+            padding: var(--section-padding) 0;
+            background: var(--white);
+        }
+
+        .what-are-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .what-are-text h2 {
+            margin-bottom: 24px;
+        }
+
+        .what-are-text p {
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .what-are-image {
+            background: var(--gradient-ocean);
+            border-radius: var(--radius-xl);
+            padding: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+        }
+
+        .what-are-image svg {
+            width: 150px;
+            height: 150px;
+            fill: var(--white);
+        }
+
+        @media (max-width: 768px) {
+            .what-are-content {
+                grid-template-columns: 1fr;
+            }
+
+            .lang-toggle {
+                top: 80px;
+                right: 16px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ES</button>
+    </div>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="../index.html" class="logo">
+                    <div class="logo-icon">
+                        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <span class="logo-text">RegenMed</span>
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="../index.html" data-lang="en">Home</a><a href="../index.html" data-lang="es">Inicio</a></li>
+                    <li><a href="../index.html#peptides" data-lang="en">Peptides</a><a href="../index.html#peptides" data-lang="es">Péptidos</a></li>
+                    <li><a href="bioregulators.html" class="active" data-lang="en">Bioregulators</a><a href="bioregulators.html" class="active" data-lang="es">Biorreguladores</a></li>
+                    <li><a href="../index.html#iv-therapy" data-lang="en">IV Therapy</a><a href="../index.html#iv-therapy" data-lang="es">Terapia IV</a></li>
+                    <li><a href="../index.html#contact" data-lang="en">Contact</a><a href="../index.html#contact" data-lang="es">Contacto</a></li>
+                </ul>
+                <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="info-hero">
+        <div class="container">
+            <a href="../index.html" class="back-link">
+                <svg viewBox="0 0 24 24">
+                    <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+                </svg>
+                <span data-lang="en">Back to Home</span>
+                <span data-lang="es">Volver al Inicio</span>
+            </a>
+
+            <span class="hero-badge">
+                <span data-lang="en">Advanced Regenerative Science</span>
+                <span data-lang="es">Ciencia Regenerativa Avanzada</span>
+            </span>
+
+            <h1>
+                <span data-lang="en">Peptide <span class="text-gradient">Bioregulators</span></span>
+                <span data-lang="es">Péptidos <span class="text-gradient">Biorreguladores</span></span>
+            </h1>
+
+            <p class="subtitle">
+                <span data-lang="en">How they work to support health and body regeneration</span>
+                <span data-lang="es">Cómo funcionan para apoyar la salud y la regeneración del cuerpo</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- What Are Bioregulators Section -->
+    <section class="what-are-section">
+        <div class="container">
+            <div class="what-are-content">
+                <div class="what-are-text">
+                    <h2>
+                        <span data-lang="en">What Are Peptide Bioregulators?</span>
+                        <span data-lang="es">¿Qué son los péptidos biorreguladores?</span>
+                    </h2>
+
+                    <p data-lang="en">
+                        Peptide bioregulators are small chains of amino acids that act as cellular "master keys," capable of influencing gene expression and protein synthesis. Unlike hormones or drugs, they don't force the body to perform an action, but rather provide the necessary information to optimize its own natural functions.
+                    </p>
+                    <p data-lang="es">
+                        Los péptidos biorreguladores son pequeñas cadenas de aminoácidos que actúan como "llaves maestras" celulares, capaces de influir en la expresión génica y la síntesis de proteínas. A diferencia de las hormonas o los fármacos, no fuerzan al cuerpo a realizar una acción, sino que le proporcionan la información necesaria para optimizar sus propias funciones naturales.
+                    </p>
+
+                    <p data-lang="en">
+                        Discovered by Russian scientist <strong>Vladimir Khavinson</strong>, these peptides are considered tissue-specific. This means that a peptide derived from brain tissue will only influence brain cells, one from the liver only liver cells, and so on.
+                    </p>
+                    <p data-lang="es">
+                        Descubiertos por el científico ruso <strong>Vladimir Khavinson</strong>, estos péptidos se consideran específicos de cada tejido. Esto significa que un péptido derivado del tejido cerebral solo influirá en las células cerebrales, uno del hígado solo en las células hepáticas, y así sucesivamente.
+                    </p>
+
+                    <p data-lang="en">
+                        Their main function is to restore the optimal rhythm of protein production, which can decrease due to aging or stress factors, thus helping to normalize organ function and enhance the body's regenerative capabilities.
+                    </p>
+                    <p data-lang="es">
+                        Su función principal es restaurar el ritmo óptimo de producción de proteínas, que puede disminuir debido al envejecimiento o a factores de estrés, ayudando así a normalizar la función del órgano y a potenciar las capacidades regenerativas del cuerpo.
+                    </p>
+                </div>
+
+                <div class="what-are-image">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M17.66 7.93L12 2.27 6.34 7.93c-3.12 3.12-3.12 8.19 0 11.31C7.9 20.8 9.95 21.58 12 21.58s4.1-.78 5.66-2.34c3.12-3.12 3.12-8.19 0-11.31zM12 19.59c-1.6 0-3.11-.62-4.24-1.76C6.62 16.69 6 15.19 6 13.59s.62-3.11 1.76-4.24L12 5.1v14.49z"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mechanism of Action Section -->
+    <section class="mechanism-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Mechanism of Action</span>
+                    <span data-lang="es">Mecanismo de Acción</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Understanding how bioregulators work in 6 steps</span>
+                    <span data-lang="es">Comprendiendo cómo funcionan los biorreguladores en 6 pasos</span>
+                </p>
+            </div>
+
+            <div class="steps-container">
+                <!-- Step 1 -->
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>
+                        <span data-lang="en">Target Organ Identification</span>
+                        <span data-lang="es">Identificación del Órgano Diana</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Each peptide is designed to target a specific organ. Its structure allows it to "fit" with the cells of that organ.</span>
+                        <span data-lang="es">Cada péptido se diseña para dirigirse a un órgano específico. Su estructura les permite "encajar" con las células de ese órgano.</span>
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>
+                        <span data-lang="en">Entry into Organ Cells</span>
+                        <span data-lang="es">Ingreso a las Células del Órgano</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Once at the destination, the peptide penetrates the cells, crossing the cell membrane due to its tiny size.</span>
+                        <span data-lang="es">Una vez en el destino, el péptido penetra en las células, atravesando la membrana celular por su tamaño diminuto.</span>
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>
+                        <span data-lang="en">DNA Binding in the Nucleus</span>
+                        <span data-lang="es">Unión al ADN en el Núcleo</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">In the nucleus, the peptide binds to DNA regions and regulates gene expression without altering the genetic code.</span>
+                        <span data-lang="es">En el núcleo, el péptido se une a regiones del ADN y regula la expresión génica sin alterar el código genético.</span>
+                    </p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>
+                        <span data-lang="en">Gene Activation & Protein Production</span>
+                        <span data-lang="es">Activación de Genes y Producción de Proteínas</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Gene activation drives the production of proteins and enzymes necessary for cellular function.</span>
+                        <span data-lang="es">La activación génica impulsa la producción de proteínas y enzimas necesarias para el funcionamiento celular.</span>
+                    </p>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h4>
+                        <span data-lang="en">Natural Regeneration Stimulation</span>
+                        <span data-lang="es">Estimulación de la Regeneración Natural</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">The organ can repair itself, generate new cells, and improve its natural functions.</span>
+                        <span data-lang="es">El órgano puede repararse, generar células nuevas y mejorar sus funciones naturales.</span>
+                    </p>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="step-card">
+                    <div class="step-number">6</div>
+                    <h4>
+                        <span data-lang="en">Awakening Internal Capabilities</span>
+                        <span data-lang="es">Despertar de Capacidades Internas</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Peptides don't add hormones or drugs; they "communicate" to the body to activate its own resources.</span>
+                        <span data-lang="es">Los péptidos no añaden hormonas ni fármacos; "comunican" al cuerpo que active sus propios recursos.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Organs Section -->
+    <section class="organs-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Target Organ Examples</span>
+                    <span data-lang="es">Ejemplos de Órgano Diana</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Each bioregulator is designed for a specific tissue or organ system</span>
+                    <span data-lang="es">Cada biorregulador está diseñado para un tejido u órgano específico</span>
+                </p>
+            </div>
+
+            <div class="organs-grid">
+                <!-- A-19 Lungs -->
+                <div class="organ-card">
+                    <div class="organ-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+                        </svg>
+                    </div>
+                    <h5>A-19</h5>
+                    <p>
+                        <span data-lang="en">Lungs</span>
+                        <span data-lang="es">Pulmones</span>
+                    </p>
+                </div>
+
+                <!-- Cerluten Brain -->
+                <div class="organ-card">
+                    <div class="organ-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h5>Cerluten</h5>
+                    <p>
+                        <span data-lang="en">Brain</span>
+                        <span data-lang="es">Cerebro</span>
+                    </p>
+                </div>
+
+                <!-- Thymogen Immune -->
+                <div class="organ-card">
+                    <div class="organ-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        </svg>
+                    </div>
+                    <h5>Thymogen</h5>
+                    <p>
+                        <span data-lang="en">Immune System</span>
+                        <span data-lang="es">Sistema Inmune</span>
+                    </p>
+                </div>
+
+                <!-- A-6 Heart -->
+                <div class="organ-card">
+                    <div class="organ-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                        </svg>
+                    </div>
+                    <h5>A-6</h5>
+                    <p>
+                        <span data-lang="en">Heart</span>
+                        <span data-lang="es">Corazón</span>
+                    </p>
+                </div>
+
+                <!-- A-7 Pancreas -->
+                <div class="organ-card">
+                    <div class="organ-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+                            <circle cx="12" cy="12" r="5"/>
+                        </svg>
+                    </div>
+                    <h5>A-7</h5>
+                    <p>
+                        <span data-lang="en">Pancreas</span>
+                        <span data-lang="es">Páncreas</span>
+                    </p>
+                </div>
+
+                <!-- A-17 Vision -->
+                <div class="organ-card">
+                    <div class="organ-icon">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
+                        </svg>
+                    </div>
+                    <h5>A-17</h5>
+                    <p>
+                        <span data-lang="en">Vision / Retina</span>
+                        <span data-lang="es">Visión / Retina</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Practical Example Section -->
+    <section class="example-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Practical Example</span>
+                    <span data-lang="es">Ejemplo Práctico</span>
+                </h2>
+            </div>
+
+            <div class="example-box">
+                <h3>
+                    <span data-lang="en">Improving Lung Function</span>
+                    <span data-lang="es">Mejora de la Función Pulmonar</span>
+                </h3>
+                <p>
+                    <span data-lang="en">In lungs inflamed by pollutants or infections, A-19 can activate genes that help reduce inflammation, improve healthy mucus production, and support tissue regeneration.</span>
+                    <span data-lang="es">En pulmones inflamados por contaminantes o infecciones, A-19 puede activar genes que ayuden a reducir la inflamación, mejorar el moco saludable y apoyar la regeneración del tejido.</span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Clinical Relevance & Research</span>
+                    <span data-lang="es">Relevancia Clínica e Investigación</span>
+                </h2>
+                <p>
+                    <span data-lang="en">While the proposed mechanism of action is elegant, scientific validation is fundamental</span>
+                    <span data-lang="es">Si bien el mecanismo de acción propuesto es elegante, la validación científica es fundamental</span>
+                </p>
+            </div>
+
+            <p class="text-center mb-5" style="max-width: 900px; margin-left: auto; margin-right: auto;">
+                <span data-lang="en">Research on bioregulatory peptides, led largely by the St. Petersburg Institute of Bioregulation and Gerontology, has explored their effects in cellular, animal, and human studies over several decades. The work of <strong>Vladimir Khavinson</strong> lends credibility to this field.</span>
+                <span data-lang="es">La investigación sobre los péptidos biorreguladores, liderada en gran parte por el Instituto de Biorregulación y Gerontología de San Petersburgo, ha explorado sus efectos en estudios celulares, animales y humanos durante varias décadas. El trabajo de <strong>Vladimir Khavinson</strong> le da credibilidad a este campo.</span>
+            </p>
+
+            <div class="research-grid">
+                <!-- Gerontological Research -->
+                <div class="research-card">
+                    <h4>
+                        <span data-lang="en">Gerontological Research</span>
+                        <span data-lang="es">Investigación Gerontológica</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">One of the most studied areas is aging. Clinical trials have suggested that certain peptides, such as <strong>Epitalon (AEDG Tetrapeptide)</strong>, may influence telomere length and melatonin production—key factors related to longevity and circadian rhythms.</span>
+                        <span data-lang="es">Una de las áreas más estudiadas es el envejecimiento. Ensayos clínicos han sugerido que ciertos péptidos, como el <strong>Epitalon (Tetrapéptido AEDG)</strong>, pueden influir en la longitud de los telómeros y en la producción de melatonina, factores clave relacionados con la longevidad y los ritmos circadianos.</span>
+                    </p>
+                </div>
+
+                <!-- Therapeutic Applications -->
+                <div class="research-card">
+                    <h4>
+                        <span data-lang="en">Specific Therapeutic Applications</span>
+                        <span data-lang="es">Aplicaciones Terapéuticas Específicas</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Beyond anti-aging, research has addressed specific conditions. For example, <strong>Thymogen</strong> has been studied for its ability to modulate immune response, being useful in cases of immunodeficiency. Similarly, <strong>Cerluten</strong> has been investigated for its potential to support cognitive function and protect neuronal tissue.</span>
+                        <span data-lang="es">Más allá del antienvejecimiento, la investigación ha abordado condiciones específicas. Por ejemplo, el péptido <strong>Thymogen</strong> ha sido estudiado por su capacidad para modular la respuesta inmune, siendo útil en casos de inmunodeficiencia. Del mismo modo, <strong>Cerluten</strong> se ha investigado por su potencial para apoyar la función cognitiva y proteger el tejido neuronal.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="why-section" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Interested in Bioregulators?</span>
+                    <span data-lang="es">¿Interesado en Biorreguladores?</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Contact us to learn more about these products and whether they may be appropriate for your health goals.</span>
+                    <span data-lang="es">Contáctenos para obtener más información sobre estos productos y si pueden ser apropiados para sus objetivos de salud.</span>
+                </p>
+                <br>
+                <a href="../index.html#contact" class="btn btn-primary">
+                    <span data-lang="en">Schedule a Consultation</span>
+                    <span data-lang="es">Agendar una Consulta</span>
+                    <svg class="btn-icon" viewBox="0 0 24 24">
+                        <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-text">RegenMed</span>
+                    <p>
+                        <span data-lang="en">Advanced regenerative medicine solutions for optimal health and recovery. Professional-grade peptides, bioregulators, and IV therapies.</span>
+                        <span data-lang="es">Soluciones avanzadas de medicina regenerativa para una salud y recuperación óptimas. Péptidos, biorreguladores y terapias IV de grado profesional.</span>
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h5>
+                        <span data-lang="en">Categories</span>
+                        <span data-lang="es">Categorías</span>
+                    </h5>
+                    <ul>
+                        <li><a href="../index.html#peptides"><span data-lang="en">Peptides</span><span data-lang="es">Péptidos</span></a></li>
+                        <li><a href="bioregulators.html"><span data-lang="en">Bioregulators</span><span data-lang="es">Biorreguladores</span></a></li>
+                        <li><a href="../index.html#iv-therapy"><span data-lang="en">IV Therapy</span><span data-lang="es">Terapia IV</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>
+                        <span data-lang="en">Products</span>
+                        <span data-lang="es">Productos</span>
+                    </h5>
+                    <ul>
+                        <li><a href="wolverine.html">Wolverine Cu Blend</a></li>
+                        <li><a href="#"><span data-lang="en">More Coming Soon</span><span data-lang="es">Más Próximamente</span></a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h5>
+                        <span data-lang="en">Support</span>
+                        <span data-lang="es">Soporte</span>
+                    </h5>
+                    <ul>
+                        <li><a href="../index.html#contact"><span data-lang="en">Contact Us</span><span data-lang="es">Contáctenos</span></a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#"><span data-lang="en">Consultations</span><span data-lang="es">Consultas</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 RegenMed. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></p>
+                <p class="footer-disclaimer">
+                    <span data-lang="en">Disclaimer: These products are for research and educational purposes only. Consult with a qualified healthcare provider before starting any new health program. Results may vary. These statements have not been evaluated by the FDA.</span>
+                    <span data-lang="es">Aviso: Estos productos son solo para fines de investigación y educación. Consulte con un proveedor de atención médica calificado antes de comenzar cualquier nuevo programa de salud. Los resultados pueden variar. Estas declaraciones no han sido evaluadas por la FDA.</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Language Toggle
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            setLanguage(savedLang);
+        });
+
+        // Mobile Navigation Toggle
+        function toggleNav() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                document.getElementById('navLinks').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

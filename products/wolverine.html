@@ -7,8 +7,72 @@
     <meta name="description" content="Wolverine Cu Blend - A comprehensive regeneration package with GHK-Cu, BPC-157, TB-500, and KPV for tissue repair, recovery, and anti-inflammatory support.">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
+    <style>
+        /* Language Toggle Styles */
+        .lang-toggle {
+            position: fixed;
+            top: 90px;
+            right: 24px;
+            z-index: 999;
+            display: flex;
+            background: var(--white);
+            border-radius: 50px;
+            padding: 4px;
+            box-shadow: var(--shadow-lg);
+            border: 2px solid var(--primary-blue);
+        }
+
+        .lang-btn {
+            padding: 8px 16px;
+            border: none;
+            background: transparent;
+            font-family: var(--font-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            border-radius: 50px;
+            transition: var(--transition-fast);
+        }
+
+        .lang-btn.active {
+            background: var(--gradient-ocean);
+            color: var(--white);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: var(--primary-blue);
+        }
+
+        /* Hide elements based on language */
+        [data-lang="es"] { display: none; }
+        html[lang="es"] [data-lang="en"] { display: none; }
+        html[lang="es"] [data-lang="es"] { display: block; }
+        html[lang="es"] span[data-lang="es"],
+        html[lang="es"] a[data-lang="es"],
+        html[lang="es"] p[data-lang="es"],
+        html[lang="es"] li[data-lang="es"] { display: block; }
+
+        @media (max-width: 768px) {
+            .lang-toggle {
+                top: 80px;
+                right: 16px;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Language Toggle -->
+    <div class="lang-toggle">
+        <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">EN</button>
+        <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ES</button>
+    </div>
+
     <!-- Header -->
     <header class="header" id="header">
         <div class="container">
@@ -22,11 +86,11 @@
                     <span class="logo-text">RegenMed</span>
                 </a>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="../index.html">Home</a></li>
-                    <li><a href="../index.html#peptides" class="active">Peptides</a></li>
-                    <li><a href="../index.html#bioregulators">Bioregulators</a></li>
-                    <li><a href="../index.html#iv-therapy">IV Therapy</a></li>
-                    <li><a href="../index.html#contact">Contact</a></li>
+                    <li><a href="../index.html" data-lang="en">Home</a><a href="../index.html" data-lang="es">Inicio</a></li>
+                    <li><a href="../index.html#peptides" class="active" data-lang="en">Peptides</a><a href="../index.html#peptides" class="active" data-lang="es">Péptidos</a></li>
+                    <li><a href="bioregulators.html" data-lang="en">Bioregulators</a><a href="bioregulators.html" data-lang="es">Biorreguladores</a></li>
+                    <li><a href="../index.html#iv-therapy" data-lang="en">IV Therapy</a><a href="../index.html#iv-therapy" data-lang="es">Terapia IV</a></li>
+                    <li><a href="../index.html#contact" data-lang="en">Contact</a><a href="../index.html#contact" data-lang="es">Contacto</a></li>
                 </ul>
                 <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
                     <span></span>
@@ -44,7 +108,8 @@
                 <svg viewBox="0 0 24 24">
                     <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
                 </svg>
-                Back to Products
+                <span data-lang="en">Back to Products</span>
+                <span data-lang="es">Volver a Productos</span>
             </a>
 
             <div class="product-hero-content">
@@ -55,11 +120,20 @@
                 </div>
 
                 <div class="product-hero-info">
-                    <span class="product-category">Peptide Blend</span>
+                    <span class="product-category">
+                        <span data-lang="en">Peptide Blend</span>
+                        <span data-lang="es">Mezcla de Péptidos</span>
+                    </span>
                     <h1>Wolverine Cu Blend</h1>
-                    <p class="product-hero-tagline">"The Fast Regeneration Package"</p>
-                    <p class="product-hero-description">
+                    <p class="product-hero-tagline">
+                        <span data-lang="en">"The Fast Regeneration Package"</span>
+                        <span data-lang="es">"El Paquete de Regeneración Rápida"</span>
+                    </p>
+                    <p class="product-hero-description" data-lang="en">
                         A comprehensive peptide blend designed to support multi-level tissue repair, reduce inflammation, and promote faster recovery. This powerful combination targets skin, joints, tendons, muscles, and gut health simultaneously.
+                    </p>
+                    <p class="product-hero-description" data-lang="es">
+                        Una mezcla integral de péptidos diseñada para apoyar la reparación de tejidos a múltiples niveles, reducir la inflamación y promover una recuperación más rápida. Esta poderosa combinación se dirige a la piel, articulaciones, tendones, músculos y salud intestinal simultáneamente.
                     </p>
 
                     <div class="product-meta">
@@ -67,23 +141,36 @@
                             <svg viewBox="0 0 24 24">
                                 <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
                             </svg>
-                            <span>4 Active Peptides</span>
+                            <span>
+                                <span data-lang="en">4 Active Peptides</span>
+                                <span data-lang="es">4 Péptidos Activos</span>
+                            </span>
                         </div>
                         <div class="meta-item">
                             <svg viewBox="0 0 24 24">
                                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                             </svg>
-                            <span>Research Grade</span>
+                            <span>
+                                <span data-lang="en">Research Grade</span>
+                                <span data-lang="es">Grado de Investigación</span>
+                            </span>
                         </div>
                     </div>
 
                     <div class="product-price-large">
-                        <span class="price">Contact Us</span>
-                        <span class="label">for pricing & availability</span>
+                        <span class="price">
+                            <span data-lang="en">Contact Us</span>
+                            <span data-lang="es">Contáctenos</span>
+                        </span>
+                        <span class="label">
+                            <span data-lang="en">for pricing & availability</span>
+                            <span data-lang="es">para precio y disponibilidad</span>
+                        </span>
                     </div>
 
                     <a href="../index.html#contact" class="btn btn-primary">
-                        Request Information
+                        <span data-lang="en">Request Information</span>
+                        <span data-lang="es">Solicitar Información</span>
                         <svg class="btn-icon" viewBox="0 0 24 24">
                             <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                         </svg>
@@ -97,8 +184,14 @@
     <section class="ingredients-section">
         <div class="container">
             <div class="section-header">
-                <h2>What's Inside</h2>
-                <p>Four powerful peptides working together for comprehensive regeneration support.</p>
+                <h2>
+                    <span data-lang="en">What's Inside</span>
+                    <span data-lang="es">Qué Contiene</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Four powerful peptides working together for comprehensive regeneration support.</span>
+                    <span data-lang="es">Cuatro péptidos poderosos trabajando juntos para un apoyo integral de regeneración.</span>
+                </p>
             </div>
 
             <div class="ingredients-grid">
@@ -107,19 +200,32 @@
                     <div class="ingredient-header">
                         <div>
                             <h4>GHK-Cu</h4>
-                            <p class="ingredient-subtitle">"The Skin & Tissue Repair Peptide"</p>
+                            <p class="ingredient-subtitle">
+                                <span data-lang="en">"The Skin & Tissue Repair Peptide"</span>
+                                <span data-lang="es">"El Péptido Reparador de Piel y Tejidos"</span>
+                            </p>
                         </div>
                         <span class="ingredient-dose">50 mg</span>
                     </div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="en">
                         A copper peptide that helps with repair and regeneration, especially in the skin.
                     </p>
-                    <ul class="ingredient-benefits">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="es">
+                        Un péptido de cobre que ayuda con la reparación y regeneración, especialmente en la piel.
+                    </p>
+                    <ul class="ingredient-benefits" data-lang="en">
                         <li>Supports collagen and elastin production</li>
                         <li>Improves skin texture and firmness</li>
                         <li>Helps wound healing and scar repair</li>
                         <li>May support hair growth and hair quality</li>
                         <li>Has anti-inflammatory and antioxidant effects</li>
+                    </ul>
+                    <ul class="ingredient-benefits" data-lang="es">
+                        <li>Apoya la producción de colágeno y elastina</li>
+                        <li>Mejora la textura y firmeza de la piel</li>
+                        <li>Ayuda a la cicatrización y reparación de cicatrices</li>
+                        <li>Puede apoyar el crecimiento y calidad del cabello</li>
+                        <li>Tiene efectos antiinflamatorios y antioxidantes</li>
                     </ul>
                 </div>
 
@@ -128,18 +234,30 @@
                     <div class="ingredient-header">
                         <div>
                             <h4>BPC-157</h4>
-                            <p class="ingredient-subtitle">"The Soft Tissue & Gut Healer"</p>
+                            <p class="ingredient-subtitle">
+                                <span data-lang="en">"The Soft Tissue & Gut Healer"</span>
+                                <span data-lang="es">"El Sanador de Tejido Blando e Intestino"</span>
+                            </p>
                         </div>
                         <span class="ingredient-dose">10 mg</span>
                     </div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="en">
                         A peptide derived from a natural protective protein found in the stomach.
                     </p>
-                    <ul class="ingredient-benefits">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="es">
+                        Un péptido derivado de una proteína protectora natural encontrada en el estómago.
+                    </p>
+                    <ul class="ingredient-benefits" data-lang="en">
                         <li>Helps healing of tendons, ligaments, and muscles</li>
                         <li>Protects and repairs stomach and gut lining</li>
                         <li>Reduces inflammation in joints and soft tissues</li>
                         <li>May reduce pain from injuries</li>
+                    </ul>
+                    <ul class="ingredient-benefits" data-lang="es">
+                        <li>Ayuda a la curación de tendones, ligamentos y músculos</li>
+                        <li>Protege y repara el revestimiento del estómago e intestino</li>
+                        <li>Reduce la inflamación en articulaciones y tejidos blandos</li>
+                        <li>Puede reducir el dolor por lesiones</li>
                     </ul>
                 </div>
 
@@ -148,18 +266,30 @@
                     <div class="ingredient-header">
                         <div>
                             <h4>TB-500</h4>
-                            <p class="ingredient-subtitle">"The Organizer of Repair"</p>
+                            <p class="ingredient-subtitle">
+                                <span data-lang="en">"The Organizer of Repair"</span>
+                                <span data-lang="es">"El Organizador de la Reparación"</span>
+                            </p>
                         </div>
                         <span class="ingredient-dose">10 mg</span>
                     </div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="en">
                         A synthetic peptide (from Thymosin Beta 4) that helps cells move and repair damaged areas.
                     </p>
-                    <ul class="ingredient-benefits">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="es">
+                        Un péptido sintético (de Timosina Beta 4) que ayuda a las células a moverse y reparar áreas dañadas.
+                    </p>
+                    <ul class="ingredient-benefits" data-lang="en">
                         <li>Helps new blood vessels form in damaged areas</li>
                         <li>Speeds up repair of muscle, tendon, and ligament</li>
                         <li>Helps cells move into injured tissue</li>
                         <li>May reduce fibrosis and adhesions</li>
+                    </ul>
+                    <ul class="ingredient-benefits" data-lang="es">
+                        <li>Ayuda a formar nuevos vasos sanguíneos en áreas dañadas</li>
+                        <li>Acelera la reparación de músculos, tendones y ligamentos</li>
+                        <li>Ayuda a las células a moverse hacia el tejido lesionado</li>
+                        <li>Puede reducir la fibrosis y adherencias</li>
                     </ul>
                 </div>
 
@@ -168,18 +298,30 @@
                     <div class="ingredient-header">
                         <div>
                             <h4>KPV</h4>
-                            <p class="ingredient-subtitle">"The Inflammation Fire Extinguisher"</p>
+                            <p class="ingredient-subtitle">
+                                <span data-lang="en">"The Inflammation Fire Extinguisher"</span>
+                                <span data-lang="es">"El Extintor de Inflamación"</span>
+                            </p>
                         </div>
                         <span class="ingredient-dose">10 mg</span>
                     </div>
-                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="en">
                         A small peptide (Lys-Pro-Val) known for its strong anti-inflammatory effects.
                     </p>
-                    <ul class="ingredient-benefits">
+                    <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 16px;" data-lang="es">
+                        Un pequeño péptido (Lis-Pro-Val) conocido por sus fuertes efectos antiinflamatorios.
+                    </p>
+                    <ul class="ingredient-benefits" data-lang="en">
                         <li>Strong systemic anti-inflammatory action</li>
                         <li>Helps calm the immune response</li>
                         <li>Possible benefits in gut inflammation</li>
                         <li>Can help reduce redness and swelling in skin</li>
+                    </ul>
+                    <ul class="ingredient-benefits" data-lang="es">
+                        <li>Fuerte acción antiinflamatoria sistémica</li>
+                        <li>Ayuda a calmar la respuesta inmune</li>
+                        <li>Posibles beneficios en inflamación intestinal</li>
+                        <li>Puede ayudar a reducir enrojecimiento e hinchazón en la piel</li>
                     </ul>
                 </div>
             </div>
@@ -190,8 +332,14 @@
     <section class="benefits-section">
         <div class="container">
             <div class="section-header">
-                <h2>How They Work Together</h2>
-                <p>Each peptide plays a unique role in the regeneration process.</p>
+                <h2>
+                    <span data-lang="en">How They Work Together</span>
+                    <span data-lang="es">Cómo Trabajan Juntos</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Each peptide plays a unique role in the regeneration process.</span>
+                    <span data-lang="es">Cada péptido juega un papel único en el proceso de regeneración.</span>
+                </p>
             </div>
 
             <div class="benefits-grid">
@@ -201,8 +349,14 @@
                             <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
                         </svg>
                     </div>
-                    <h4>Multi-Level Repair</h4>
-                    <p>GHK-Cu handles collagen and skin, BPC-157 targets soft tissue, TB-500 improves blood flow to injuries.</p>
+                    <h4>
+                        <span data-lang="en">Multi-Level Repair</span>
+                        <span data-lang="es">Reparación Multi-Nivel</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">GHK-Cu handles collagen and skin, BPC-157 targets soft tissue, TB-500 improves blood flow to injuries.</span>
+                        <span data-lang="es">GHK-Cu maneja colágeno y piel, BPC-157 se dirige al tejido blando, TB-500 mejora el flujo sanguíneo a las lesiones.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -211,8 +365,14 @@
                             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/>
                         </svg>
                     </div>
-                    <h4>Inflammation Control</h4>
-                    <p>KPV and BPC-157 calm inflammation and pain, allowing the healing peptides to work more effectively.</p>
+                    <h4>
+                        <span data-lang="en">Inflammation Control</span>
+                        <span data-lang="es">Control de Inflamación</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">KPV and BPC-157 calm inflammation and pain, allowing the healing peptides to work more effectively.</span>
+                        <span data-lang="es">KPV y BPC-157 calman la inflamación y el dolor, permitiendo que los péptidos curativos trabajen más efectivamente.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -221,8 +381,14 @@
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-                    <h4>Structural Support</h4>
-                    <p>TB-500 and GHK-Cu work on structural repair while inflammation is being controlled.</p>
+                    <h4>
+                        <span data-lang="en">Structural Support</span>
+                        <span data-lang="es">Soporte Estructural</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">TB-500 and GHK-Cu work on structural repair while inflammation is being controlled.</span>
+                        <span data-lang="es">TB-500 y GHK-Cu trabajan en la reparación estructural mientras se controla la inflamación.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -231,8 +397,14 @@
                             <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
                         </svg>
                     </div>
-                    <h4>Faster Recovery</h4>
-                    <p>The combined effect: faster recovery, better mobility, and improved healing quality.</p>
+                    <h4>
+                        <span data-lang="en">Faster Recovery</span>
+                        <span data-lang="es">Recuperación Más Rápida</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">The combined effect: faster recovery, better mobility, and improved healing quality.</span>
+                        <span data-lang="es">El efecto combinado: recuperación más rápida, mejor movilidad y mejor calidad de curación.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -243,8 +415,12 @@
         <div class="container">
             <div class="why-content">
                 <div class="why-text">
-                    <h2>Why "Wolverine"?</h2>
-                    <p>Just like the comic book character known for his remarkable regenerative abilities, this blend aims to support your body's natural healing processes from multiple angles simultaneously.</p>
+                    <h2>
+                        <span data-lang="en">Why "Wolverine"?</span>
+                        <span data-lang="es">¿Por Qué "Wolverine"?</span>
+                    </h2>
+                    <p data-lang="en">Just like the comic book character known for his remarkable regenerative abilities, this blend aims to support your body's natural healing processes from multiple angles simultaneously.</p>
+                    <p data-lang="es">Al igual que el personaje de cómic conocido por sus notables habilidades regenerativas, esta mezcla tiene como objetivo apoyar los procesos naturales de curación de tu cuerpo desde múltiples ángulos simultáneamente.</p>
 
                     <ul class="why-list">
                         <li>
@@ -254,8 +430,14 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h5>KPV Lowers Inflammation</h5>
-                                <p>Creates the optimal environment for healing to occur.</p>
+                                <h5>
+                                    <span data-lang="en">KPV Lowers Inflammation</span>
+                                    <span data-lang="es">KPV Reduce la Inflamación</span>
+                                </h5>
+                                <p>
+                                    <span data-lang="en">Creates the optimal environment for healing to occur.</span>
+                                    <span data-lang="es">Crea el ambiente óptimo para que ocurra la curación.</span>
+                                </p>
                             </div>
                         </li>
                         <li>
@@ -265,8 +447,14 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h5>BPC-157 Heals Gut & Soft Tissue</h5>
-                                <p>Targets tendons, ligaments, muscles, and digestive health.</p>
+                                <h5>
+                                    <span data-lang="en">BPC-157 Heals Gut & Soft Tissue</span>
+                                    <span data-lang="es">BPC-157 Sana Intestino y Tejido Blando</span>
+                                </h5>
+                                <p>
+                                    <span data-lang="en">Targets tendons, ligaments, muscles, and digestive health.</span>
+                                    <span data-lang="es">Se dirige a tendones, ligamentos, músculos y salud digestiva.</span>
+                                </p>
                             </div>
                         </li>
                         <li>
@@ -276,8 +464,14 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h5>TB-500 Improves Repair & Blood Flow</h5>
-                                <p>Helps cells migrate to injured areas and promotes vascularization.</p>
+                                <h5>
+                                    <span data-lang="en">TB-500 Improves Repair & Blood Flow</span>
+                                    <span data-lang="es">TB-500 Mejora Reparación y Flujo Sanguíneo</span>
+                                </h5>
+                                <p>
+                                    <span data-lang="en">Helps cells migrate to injured areas and promotes vascularization.</span>
+                                    <span data-lang="es">Ayuda a las células a migrar a áreas lesionadas y promueve la vascularización.</span>
+                                </p>
                             </div>
                         </li>
                         <li>
@@ -287,8 +481,14 @@
                                 </svg>
                             </div>
                             <div class="text">
-                                <h5>GHK-Cu Rejuvenates Skin & Matrix</h5>
-                                <p>Supports collagen production and overall tissue quality.</p>
+                                <h5>
+                                    <span data-lang="en">GHK-Cu Rejuvenates Skin & Matrix</span>
+                                    <span data-lang="es">GHK-Cu Rejuvenece Piel y Matriz</span>
+                                </h5>
+                                <p>
+                                    <span data-lang="en">Supports collagen production and overall tissue quality.</span>
+                                    <span data-lang="es">Apoya la producción de colágeno y la calidad general del tejido.</span>
+                                </p>
                             </div>
                         </li>
                     </ul>
@@ -299,8 +499,14 @@
                         <svg viewBox="0 0 24 24">
                             <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z"/>
                         </svg>
-                        <h3>Fast Regeneration</h3>
-                        <p>Together, they work to imitate the rapid healing we all wish we had.</p>
+                        <h3>
+                            <span data-lang="en">Fast Regeneration</span>
+                            <span data-lang="es">Regeneración Rápida</span>
+                        </h3>
+                        <p>
+                            <span data-lang="en">Together, they work to imitate the rapid healing we all wish we had.</span>
+                            <span data-lang="es">Juntos, trabajan para imitar la curación rápida que todos deseamos tener.</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -311,8 +517,14 @@
     <section class="ingredients-section" style="background: var(--gradient-sky);">
         <div class="container">
             <div class="section-header">
-                <h2>Potential Applications</h2>
-                <p>This blend has been explored experimentally for various conditions.</p>
+                <h2>
+                    <span data-lang="en">Potential Applications</span>
+                    <span data-lang="es">Aplicaciones Potenciales</span>
+                </h2>
+                <p>
+                    <span data-lang="en">This blend has been explored experimentally for various conditions.</span>
+                    <span data-lang="es">Esta mezcla ha sido explorada experimentalmente para varias condiciones.</span>
+                </p>
             </div>
 
             <div class="benefits-grid">
@@ -322,8 +534,14 @@
                             <path d="M13.5.67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
                         </svg>
                     </div>
-                    <h4>Sports Injuries</h4>
-                    <p>Support for athletes dealing with muscle, tendon, or ligament issues.</p>
+                    <h4>
+                        <span data-lang="en">Sports Injuries</span>
+                        <span data-lang="es">Lesiones Deportivas</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Support for athletes dealing with muscle, tendon, or ligament issues.</span>
+                        <span data-lang="es">Apoyo para atletas con problemas de músculos, tendones o ligamentos.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -332,8 +550,14 @@
                             <path d="M12 2c-4 0-8 .5-8 4v9.5C4 17.43 5.57 19 7.5 19L6 20.5v.5h2.23l2-2H14l2 2h2v-.5L16.5 19c1.93 0 3.5-1.57 3.5-3.5V6c0-3.5-3.58-4-8-4zM7.5 17c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm3.5-6H6V6h5v5zm2 0V6h5v5h-5zm3.5 6c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
                         </svg>
                     </div>
-                    <h4>Joint Issues</h4>
-                    <p>May help with chronic joint discomfort and mobility challenges.</p>
+                    <h4>
+                        <span data-lang="en">Joint Issues</span>
+                        <span data-lang="es">Problemas Articulares</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">May help with chronic joint discomfort and mobility challenges.</span>
+                        <span data-lang="es">Puede ayudar con molestias articulares crónicas y desafíos de movilidad.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -342,8 +566,14 @@
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-5.5-2.5l7.51-3.49L17.5 6.5 9.99 9.99 6.5 17.5zm5.5-6.6c.61 0 1.1.49 1.1 1.1s-.49 1.1-1.1 1.1-1.1-.49-1.1-1.1.49-1.1 1.1-1.1z"/>
                         </svg>
                     </div>
-                    <h4>Chronic Soft Tissue Pain</h4>
-                    <p>Support for ongoing soft tissue discomfort and recovery.</p>
+                    <h4>
+                        <span data-lang="en">Chronic Soft Tissue Pain</span>
+                        <span data-lang="es">Dolor Crónico de Tejido Blando</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Support for ongoing soft tissue discomfort and recovery.</span>
+                        <span data-lang="es">Apoyo para molestias continuas de tejido blando y recuperación.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -352,8 +582,14 @@
                             <path d="M17.73 12.02l3.98-3.98c.39-.39.39-1.02 0-1.41l-4.34-4.34c-.39-.39-1.02-.39-1.41 0l-3.98 3.98L8 2.29C7.8 2.1 7.55 2 7.29 2c-.25 0-.51.1-.7.29L2.25 6.63c-.39.39-.39 1.02 0 1.41l3.98 3.98L2.25 16c-.39.39-.39 1.02 0 1.41l4.34 4.34c.39.39 1.02.39 1.41 0l3.98-3.98 3.98 3.98c.2.2.45.29.71.29.26 0 .51-.1.71-.29l4.34-4.34c.39-.39.39-1.02 0-1.41l-3.99-3.98zM12 9c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-4.71 1.96L3.66 7.34l3.63-3.63 3.62 3.62-3.62 3.63zM10 13c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2 2c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm2-4c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2.66 9.34l-3.63-3.62 3.63-3.63 3.62 3.62-3.62 3.63z"/>
                         </svg>
                     </div>
-                    <h4>Slow Wound Healing</h4>
-                    <p>For those experiencing delayed healing or skin damage.</p>
+                    <h4>
+                        <span data-lang="en">Slow Wound Healing</span>
+                        <span data-lang="es">Cicatrización Lenta</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">For those experiencing delayed healing or skin damage.</span>
+                        <span data-lang="es">Para quienes experimentan curación retrasada o daño en la piel.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -362,8 +598,14 @@
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"/>
                         </svg>
                     </div>
-                    <h4>Gut Inflammation</h4>
-                    <p>Support for digestive health and gut lining integrity.</p>
+                    <h4>
+                        <span data-lang="en">Gut Inflammation</span>
+                        <span data-lang="es">Inflamación Intestinal</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Support for digestive health and gut lining integrity.</span>
+                        <span data-lang="es">Apoyo para la salud digestiva e integridad del revestimiento intestinal.</span>
+                    </p>
                 </div>
 
                 <div class="benefit-card">
@@ -372,8 +614,14 @@
                             <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/>
                         </svg>
                     </div>
-                    <h4>General Recovery</h4>
-                    <p>Overall support for faster recovery and better healing quality.</p>
+                    <h4>
+                        <span data-lang="en">General Recovery</span>
+                        <span data-lang="es">Recuperación General</span>
+                    </h4>
+                    <p>
+                        <span data-lang="en">Overall support for faster recovery and better healing quality.</span>
+                        <span data-lang="es">Apoyo general para una recuperación más rápida y mejor calidad de curación.</span>
+                    </p>
                 </div>
             </div>
         </div>
@@ -383,11 +631,18 @@
     <section class="why-section" style="background: var(--white);">
         <div class="container">
             <div class="section-header">
-                <h2>Interested in Wolverine Cu Blend?</h2>
-                <p>Contact us to learn more about this product and whether it may be appropriate for your health goals.</p>
+                <h2>
+                    <span data-lang="en">Interested in Wolverine Cu Blend?</span>
+                    <span data-lang="es">¿Interesado en Wolverine Cu Blend?</span>
+                </h2>
+                <p>
+                    <span data-lang="en">Contact us to learn more about this product and whether it may be appropriate for your health goals.</span>
+                    <span data-lang="es">Contáctenos para obtener más información sobre este producto y si puede ser apropiado para sus objetivos de salud.</span>
+                </p>
                 <br>
                 <a href="../index.html#contact" class="btn btn-primary">
-                    Schedule a Consultation
+                    <span data-lang="en">Schedule a Consultation</span>
+                    <span data-lang="es">Agendar una Consulta</span>
                     <svg class="btn-icon" viewBox="0 0 24 24">
                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                     </svg>
@@ -402,41 +657,70 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="logo-text">RegenMed</span>
-                    <p>Advanced regenerative medicine solutions for optimal health and recovery. Professional-grade peptides, bioregulators, and IV therapies.</p>
+                    <p>
+                        <span data-lang="en">Advanced regenerative medicine solutions for optimal health and recovery. Professional-grade peptides, bioregulators, and IV therapies.</span>
+                        <span data-lang="es">Soluciones avanzadas de medicina regenerativa para una salud y recuperación óptimas. Péptidos, biorreguladores y terapias IV de grado profesional.</span>
+                    </p>
                 </div>
                 <div class="footer-links">
-                    <h5>Categories</h5>
+                    <h5>
+                        <span data-lang="en">Categories</span>
+                        <span data-lang="es">Categorías</span>
+                    </h5>
                     <ul>
-                        <li><a href="../index.html#peptides">Peptides</a></li>
-                        <li><a href="../index.html#bioregulators">Bioregulators</a></li>
-                        <li><a href="../index.html#iv-therapy">IV Therapy</a></li>
+                        <li><a href="../index.html#peptides"><span data-lang="en">Peptides</span><span data-lang="es">Péptidos</span></a></li>
+                        <li><a href="bioregulators.html"><span data-lang="en">Bioregulators</span><span data-lang="es">Biorreguladores</span></a></li>
+                        <li><a href="../index.html#iv-therapy"><span data-lang="en">IV Therapy</span><span data-lang="es">Terapia IV</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h5>Products</h5>
+                    <h5>
+                        <span data-lang="en">Products</span>
+                        <span data-lang="es">Productos</span>
+                    </h5>
                     <ul>
                         <li><a href="wolverine.html">Wolverine Cu Blend</a></li>
-                        <li><a href="#">More Coming Soon</a></li>
+                        <li><a href="#"><span data-lang="en">More Coming Soon</span><span data-lang="es">Más Próximamente</span></a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
-                    <h5>Support</h5>
+                    <h5>
+                        <span data-lang="en">Support</span>
+                        <span data-lang="es">Soporte</span>
+                    </h5>
                     <ul>
-                        <li><a href="../index.html#contact">Contact Us</a></li>
+                        <li><a href="../index.html#contact"><span data-lang="en">Contact Us</span><span data-lang="es">Contáctenos</span></a></li>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Consultations</a></li>
+                        <li><a href="#"><span data-lang="en">Consultations</span><span data-lang="es">Consultas</span></a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 RegenMed. All rights reserved.</p>
-                <p class="footer-disclaimer">Disclaimer: These products are for research and educational purposes only. Consult with a qualified healthcare provider before starting any new health program. Results may vary. These statements have not been evaluated by the FDA.</p>
+                <p>&copy; 2024 RegenMed. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></p>
+                <p class="footer-disclaimer">
+                    <span data-lang="en">Disclaimer: These products are for research and educational purposes only. Consult with a qualified healthcare provider before starting any new health program. Results may vary. These statements have not been evaluated by the FDA.</span>
+                    <span data-lang="es">Aviso: Estos productos son solo para fines de investigación y educación. Consulte con un proveedor de atención médica calificado antes de comenzar cualquier nuevo programa de salud. Los resultados pueden variar. Estas declaraciones no han sido evaluadas por la FDA.</span>
+                </p>
             </div>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
+        // Language Toggle
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            document.getElementById('btn-es').classList.toggle('active', lang === 'es');
+            localStorage.setItem('preferred-language', lang);
+        }
+
+        // Load saved language preference
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedLang = localStorage.getItem('preferred-language') || 'en';
+            setLanguage(savedLang);
+        });
+
         // Mobile Navigation Toggle
         function toggleNav() {
             const navLinks = document.getElementById('navLinks');
