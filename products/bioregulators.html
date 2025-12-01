@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bioregulators | Peptide Bioregulators for Health & Regeneration</title>
     <meta name="description" content="Learn about peptide bioregulators - cellular master keys that support gene expression, protein synthesis, and natural body regeneration.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Peptide Bioregulators - Cabo Health">
+    <meta property="og:description" content="Learn about peptide bioregulators - cellular master keys for gene expression and natural body regeneration.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_MX">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Peptide Bioregulators - Cabo Health">
+    <meta name="twitter:description" content="Learn about peptide bioregulators for health and regeneration.">
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
     <style>
@@ -296,10 +313,16 @@
     </style>
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--primary-blue); color: white; padding: 8px 16px; z-index: 9999; transition: top 0.3s;">
+        <span data-lang="en">Skip to main content</span>
+        <span data-lang="es">Saltar al contenido principal</span>
+    </a>
+
     <!-- Language Toggle -->
-    <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">EN</button>
-        <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ES</button>
+    <div class="lang-toggle" role="group" aria-label="Language selection">
+        <button type="button" class="lang-btn active" onclick="setLanguage('en')" id="btn-en" aria-label="Switch to English">EN</button>
+        <button type="button" class="lang-btn" onclick="setLanguage('es')" id="btn-es" aria-label="Cambiar a Español">ES</button>
     </div>
 
     <!-- Header -->
@@ -308,8 +331,17 @@
             <nav class="nav">
                 <a href="../index.html" class="logo">
                     <div class="logo-icon">
+                        <!-- DNA Double Helix - Longevity Symbol -->
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            <path d="M6 3c0 3 4 4.5 6 6s6 3 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M18 3c0 3-4 4.5-6 6s-6 3-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M6 15c0 3 4 4.5 6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M18 15c0 3-4 4.5-6 6" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <line x1="7" y1="6" x2="17" y2="6" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="6" y1="9" x2="18" y2="9" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="6" y1="12" x2="18" y2="12" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="6" y1="15" x2="18" y2="15" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
+                            <line x1="7" y1="18" x2="17" y2="18" stroke="currentColor" stroke-width="1.5" opacity="0.7"/>
                         </svg>
                     </div>
                     <span class="logo-text">Cabo Health</span>
@@ -319,7 +351,7 @@
                     <li><a href="../index.html#peptides" data-lang="en">Peptides</a><a href="../index.html#peptides" data-lang="es">Péptidos</a></li>
                     <li><a href="bioregulators.html" class="active" data-lang="en">Bioregulators</a><a href="bioregulators.html" class="active" data-lang="es">Biorreguladores</a></li>
                     <li><a href="../index.html#iv-therapy" data-lang="en">IV Therapy</a><a href="../index.html#iv-therapy" data-lang="es">Terapia IV</a></li>
-                    <li><a href="../index.html#contact" data-lang="en">Contact</a><a href="../index.html#contact" data-lang="es">Contacto</a></li>
+                    <li><a href="../index.html#rejuvenation-plan" data-lang="en">Rejuvenation Plan</a><a href="../index.html#rejuvenation-plan" data-lang="es">Plan Rejuvenecimiento</a></li>
                 </ul>
                 <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
                     <span></span>
@@ -331,7 +363,7 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="info-hero">
+    <section class="info-hero" id="main-content">
         <div class="container">
             <a href="../index.html" class="back-link">
                 <svg viewBox="0 0 24 24">
@@ -681,10 +713,10 @@
                     <span data-lang="es">Contáctenos para obtener más información sobre estos productos y si pueden ser apropiados para sus objetivos de salud.</span>
                 </p>
                 <br>
-                <a href="../index.html#contact" class="btn btn-primary">
+                <a href="mailto:info@cabohealth.com" class="btn btn-primary">
                     <span data-lang="en">Schedule a Consultation</span>
                     <span data-lang="es">Agendar una Consulta</span>
-                    <svg class="btn-icon" viewBox="0 0 24 24">
+                    <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true">
                         <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
                     </svg>
                 </a>
@@ -692,57 +724,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-text">Cabo Health</span>
-                    <p>
-                        <span data-lang="en">Advanced regenerative medicine solutions for optimal health and recovery. Professional-grade peptides, bioregulators, and IV therapies.</span>
-                        <span data-lang="es">Soluciones avanzadas de medicina regenerativa para una salud y recuperación óptimas. Péptidos, biorreguladores y terapias IV de grado profesional.</span>
-                    </p>
-                </div>
-                <div class="footer-links">
-                    <h5>
-                        <span data-lang="en">Categories</span>
-                        <span data-lang="es">Categorías</span>
-                    </h5>
-                    <ul>
-                        <li><a href="../index.html#peptides"><span data-lang="en">Peptides</span><span data-lang="es">Péptidos</span></a></li>
-                        <li><a href="bioregulators.html"><span data-lang="en">Bioregulators</span><span data-lang="es">Biorreguladores</span></a></li>
-                        <li><a href="../index.html#iv-therapy"><span data-lang="en">IV Therapy</span><span data-lang="es">Terapia IV</span></a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h5>
-                        <span data-lang="en">Products</span>
-                        <span data-lang="es">Productos</span>
-                    </h5>
-                    <ul>
-                        <li><a href="wolverine.html">Wolverine Cu Blend</a></li>
-                        <li><a href="#"><span data-lang="en">More Coming Soon</span><span data-lang="es">Más Próximamente</span></a></li>
-                    </ul>
-                </div>
-                <div class="footer-links">
-                    <h5>
-                        <span data-lang="en">Support</span>
-                        <span data-lang="es">Soporte</span>
-                    </h5>
-                    <ul>
-                        <li><a href="../index.html#contact"><span data-lang="en">Contact Us</span><span data-lang="es">Contáctenos</span></a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#"><span data-lang="en">Consultations</span><span data-lang="es">Consultas</span></a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 RegenMed. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></p>
-                <p class="footer-disclaimer">
-                    <span data-lang="en">Disclaimer: These products are for research and educational purposes only. Consult with a qualified healthcare provider before starting any new health program. Results may vary. These statements have not been evaluated by the FDA.</span>
-                    <span data-lang="es">Aviso: Estos productos son solo para fines de investigación y educación. Consulte con un proveedor de atención médica calificado antes de comenzar cualquier nuevo programa de salud. Los resultados pueden variar. Estas declaraciones no han sido evaluadas por la FDA.</span>
-                </p>
-            </div>
+    <!-- Simple Footer -->
+    <footer class="footer" style="padding: 20px 0; background: var(--light-gray);">
+        <div class="container" style="text-align: center;">
+            <p style="margin: 0; color: var(--text-light); font-size: 0.875rem;">&copy; 2025 Cabo Health. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 

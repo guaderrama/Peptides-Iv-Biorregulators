@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Peptides, Bioregulators, IVs by Cabo Health</title>
     <meta name="description" content="Professional regenerative medicine solutions by Cabo Health. Explore our catalog of peptides, bioregulators, and IV therapies for optimal health and recovery.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Cabo Health - Regenerative Medicine">
+    <meta property="og:description" content="Professional regenerative medicine solutions. Peptides, bioregulators, and IV therapies for optimal health and recovery.">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="es_MX">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Cabo Health - Regenerative Medicine">
+    <meta name="twitter:description" content="Professional regenerative medicine solutions. Peptides, bioregulators, and IV therapies.">
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧬</text></svg>">
     <style>
@@ -65,10 +82,16 @@
     </style>
 </head>
 <body>
+    <!-- Skip Navigation Link -->
+    <a href="#categories" class="skip-link" style="position: absolute; top: -40px; left: 0; background: var(--primary-blue); color: white; padding: 8px 16px; z-index: 9999; transition: top 0.3s;">
+        <span data-lang="en">Skip to main content</span>
+        <span data-lang="es">Saltar al contenido principal</span>
+    </a>
+
     <!-- Language Toggle -->
-    <div class="lang-toggle">
-        <button class="lang-btn active" onclick="setLanguage('en')" id="btn-en">EN</button>
-        <button class="lang-btn" onclick="setLanguage('es')" id="btn-es">ES</button>
+    <div class="lang-toggle" role="group" aria-label="Language selection">
+        <button type="button" class="lang-btn active" onclick="setLanguage('en')" id="btn-en" aria-label="Switch to English">EN</button>
+        <button type="button" class="lang-btn" onclick="setLanguage('es')" id="btn-es" aria-label="Cambiar a Español">ES</button>
     </div>
 
     <!-- Header -->
@@ -1157,7 +1180,7 @@
     <!-- Simple Footer -->
     <footer class="footer" style="padding: 20px 0; background: var(--light-gray);">
         <div class="container" style="text-align: center;">
-            <p style="margin: 0; color: var(--text-light); font-size: 0.875rem;">&copy; 2024 Cabo Health. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></p>
+            <p style="margin: 0; color: var(--text-light); font-size: 0.875rem;">&copy; 2025 Cabo Health. <span data-lang="en">All rights reserved.</span><span data-lang="es">Todos los derechos reservados.</span></p>
         </div>
     </footer>
 
