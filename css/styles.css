@@ -8,27 +8,27 @@
 
 /* CSS Variables */
 :root {
-    /* Primary Colors - Ocean/Beach Theme */
-    --primary-blue: #0ea5e9;
-    --primary-blue-dark: #0284c7;
-    --primary-blue-light: #38bdf8;
-    --accent-cyan: #22d3ee;
-    --accent-teal: #14b8a6;
+    /* Primary Colors - Ocean/Beach Theme - MORE VIBRANT */
+    --primary-blue: #0284c7;
+    --primary-blue-dark: #0369a1;
+    --primary-blue-light: #0ea5e9;
+    --accent-cyan: #06b6d4;
+    --accent-teal: #0d9488;
 
-    /* Neutral Colors */
+    /* Neutral Colors - HIGHER CONTRAST */
     --white: #ffffff;
     --off-white: #f8fafc;
     --light-gray: #f1f5f9;
-    --medium-gray: #e2e8f0;
-    --dark-gray: #64748b;
-    --text-dark: #1e293b;
-    --text-light: #475569;
+    --medium-gray: #cbd5e1;
+    --dark-gray: #475569;
+    --text-dark: #0f172a;
+    --text-light: #334155;
 
-    /* Gradient Colors */
-    --gradient-ocean: linear-gradient(135deg, #0ea5e9 0%, #22d3ee 50%, #14b8a6 100%);
+    /* Gradient Colors - MORE VIBRANT */
+    --gradient-ocean: linear-gradient(135deg, #0284c7 0%, #0891b2 50%, #0d9488 100%);
     --gradient-sky: linear-gradient(180deg, #e0f2fe 0%, #ffffff 100%);
     --gradient-card: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
-    --gradient-glow: linear-gradient(135deg, rgba(14, 165, 233, 0.1) 0%, rgba(34, 211, 238, 0.1) 100%);
+    --gradient-glow: linear-gradient(135deg, rgba(2, 132, 199, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
 
     /* Shadows */
     --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -70,8 +70,8 @@ html {
 
 body {
     font-family: var(--font-primary);
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 18px;
+    line-height: 1.7;
     color: var(--text-dark);
     background: var(--gradient-sky);
     min-height: 100vh;
@@ -102,14 +102,15 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--text-dark);
 }
 
-h1 { font-size: clamp(2.5rem, 5vw, 4rem); }
-h2 { font-size: clamp(2rem, 4vw, 3rem); }
-h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
-h4 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+h1 { font-size: clamp(2.75rem, 5vw, 4.5rem); }
+h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); }
+h3 { font-size: clamp(1.75rem, 3vw, 2.25rem); }
+h4 { font-size: clamp(1.4rem, 2.5vw, 1.75rem); }
 
 p {
     color: var(--text-light);
     margin-bottom: 1rem;
+    font-size: 1.05rem;
 }
 
 a {
@@ -518,17 +519,17 @@ a {
 }
 
 .product-tagline {
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     color: var(--text-light);
     margin-bottom: 16px;
     font-style: italic;
 }
 
 .product-description {
-    font-size: 0.85rem;
+    font-size: 1rem;
     color: var(--text-light);
     margin-bottom: 16px;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .product-benefits {
@@ -543,20 +544,20 @@ a {
 
 .product-benefits li {
     position: relative;
-    padding-left: 20px;
-    margin-bottom: 8px;
-    font-size: 0.8rem;
+    padding-left: 24px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
     color: var(--text-light);
-    line-height: 1.4;
+    line-height: 1.5;
 }
 
 .product-benefits li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 6px;
-    width: 6px;
-    height: 6px;
+    top: 8px;
+    width: 8px;
+    height: 8px;
     background: var(--accent-teal);
     border-radius: 50%;
 }
