@@ -8,34 +8,36 @@
 
 /* CSS Variables */
 :root {
-    /* Primary Colors - Ocean/Beach Theme - MORE VIBRANT */
-    --primary-blue: #0284c7;
-    --primary-blue-dark: #0369a1;
-    --primary-blue-light: #0ea5e9;
-    --accent-cyan: #06b6d4;
-    --accent-teal: #0d9488;
+    /* Primary Colors - Premium Longevity Clinic Theme */
+    --primary-blue: #0c4a6e;
+    --primary-blue-dark: #082f49;
+    --primary-blue-light: #0369a1;
+    --accent-gold: #b45309;
+    --accent-gold-light: #d97706;
+    --accent-teal: #0f766e;
 
-    /* Neutral Colors - HIGHER CONTRAST */
+    /* Neutral Colors - HIGH CONTRAST for 50+ readability */
     --white: #ffffff;
-    --off-white: #f8fafc;
-    --light-gray: #f1f5f9;
-    --medium-gray: #cbd5e1;
-    --dark-gray: #475569;
-    --text-dark: #0f172a;
-    --text-light: #334155;
+    --off-white: #fafaf9;
+    --light-gray: #f5f5f4;
+    --medium-gray: #a8a29e;
+    --dark-gray: #44403c;
+    --text-dark: #1c1917;
+    --text-light: #292524;
 
-    /* Gradient Colors - MORE VIBRANT */
-    --gradient-ocean: linear-gradient(135deg, #0284c7 0%, #0891b2 50%, #0d9488 100%);
-    --gradient-sky: linear-gradient(180deg, #e0f2fe 0%, #ffffff 100%);
-    --gradient-card: linear-gradient(145deg, #ffffff 0%, #f1f5f9 100%);
-    --gradient-glow: linear-gradient(135deg, rgba(2, 132, 199, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+    /* Gradient Colors - Premium Medical */
+    --gradient-ocean: linear-gradient(135deg, #0c4a6e 0%, #0369a1 50%, #0f766e 100%);
+    --gradient-gold: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+    --gradient-sky: linear-gradient(180deg, #f0fdfa 0%, #ffffff 100%);
+    --gradient-card: linear-gradient(145deg, #ffffff 0%, #fafaf9 100%);
+    --gradient-glow: linear-gradient(135deg, rgba(12, 74, 110, 0.12) 0%, rgba(15, 118, 110, 0.12) 100%);
 
-    /* Shadows */
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
-    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
-    --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.15);
+    /* Shadows - Premium depth */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 8px -1px rgba(0, 0, 0, 0.12), 0 2px 4px -2px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 20px -3px rgba(0, 0, 0, 0.12), 0 6px 8px -4px rgba(0, 0, 0, 0.08);
+    --shadow-xl: 0 25px 35px -5px rgba(0, 0, 0, 0.15), 0 10px 15px -6px rgba(0, 0, 0, 0.1);
+    --shadow-glow: 0 0 50px rgba(12, 74, 110, 0.2);
 
     /* Typography */
     --font-primary: 'Outfit', sans-serif;
@@ -70,15 +72,16 @@ html {
 
 body {
     font-family: var(--font-primary);
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 20px;
+    line-height: 1.8;
     color: var(--text-dark);
     background: var(--gradient-sky);
     min-height: 100vh;
     overflow-x: hidden;
+    letter-spacing: 0.01em;
 }
 
-/* Background Animation - Ocean Waves */
+/* Background - Subtle Premium Effect */
 body::before {
     content: '';
     position: fixed;
@@ -87,30 +90,32 @@ body::before {
     width: 100%;
     height: 100%;
     background:
-        radial-gradient(ellipse at 20% 80%, rgba(14, 165, 233, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(20, 184, 166, 0.05) 0%, transparent 70%);
+        radial-gradient(ellipse at 20% 80%, rgba(12, 74, 110, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(15, 118, 110, 0.06) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(180, 83, 9, 0.03) 0%, transparent 70%);
     pointer-events: none;
     z-index: -1;
 }
 
-/* Typography */
+/* Typography - Large & Clear for 50+ */
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 600;
-    line-height: 1.2;
+    font-weight: 700;
+    line-height: 1.25;
     color: var(--text-dark);
+    letter-spacing: -0.01em;
 }
 
-h1 { font-size: clamp(2.75rem, 5vw, 4.5rem); }
-h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); }
-h3 { font-size: clamp(1.75rem, 3vw, 2.25rem); }
-h4 { font-size: clamp(1.4rem, 2.5vw, 1.75rem); }
+h1 { font-size: clamp(3rem, 6vw, 5rem); }
+h2 { font-size: clamp(2.5rem, 5vw, 4rem); }
+h3 { font-size: clamp(1.875rem, 3.5vw, 2.5rem); }
+h4 { font-size: clamp(1.5rem, 2.5vw, 1.875rem); }
 
 p {
     color: var(--text-light);
-    margin-bottom: 1rem;
-    font-size: 1.05rem;
+    margin-bottom: 1.25rem;
+    font-size: 1.15rem;
+    font-weight: 400;
 }
 
 a {
@@ -136,10 +141,10 @@ a {
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(14, 165, 233, 0.1);
+    border-bottom: 2px solid rgba(12, 74, 110, 0.1);
     transition: var(--transition-normal);
 }
 
@@ -179,12 +184,13 @@ a {
 
 .logo-text {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     font-weight: 700;
     background: var(--gradient-ocean);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    letter-spacing: -0.02em;
 }
 
 .nav-links {
@@ -194,9 +200,10 @@ a {
 }
 
 .nav-links a {
-    padding: 10px 20px;
+    padding: 12px 22px;
     border-radius: var(--radius-md);
-    font-weight: 500;
+    font-weight: 600;
+    font-size: 1rem;
     color: var(--text-light);
     transition: var(--transition-fast);
 }
@@ -235,23 +242,23 @@ a {
 .hero-badge {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 20px;
+    gap: 10px;
+    padding: 10px 24px;
     background: var(--white);
-    border: 1px solid var(--medium-gray);
+    border: 2px solid var(--accent-gold);
     border-radius: 50px;
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--primary-blue);
-    margin-bottom: 24px;
-    box-shadow: var(--shadow-sm);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-md);
 }
 
 .hero-badge::before {
     content: '';
-    width: 8px;
-    height: 8px;
-    background: var(--accent-teal);
+    width: 10px;
+    height: 10px;
+    background: var(--accent-gold);
     border-radius: 50%;
     animation: pulse 2s infinite;
 }
@@ -273,10 +280,11 @@ a {
 }
 
 .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
     color: var(--text-light);
-    max-width: 600px;
-    margin: 0 auto 40px;
+    max-width: 700px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
 }
 
 /* ============================================
@@ -361,22 +369,24 @@ a {
 }
 
 .category-card h3 {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .category-card p {
     margin-bottom: 24px;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
 }
 
 .category-count {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 6px 16px;
+    gap: 8px;
+    padding: 8px 18px;
     background: var(--light-gray);
     border-radius: 50px;
-    font-size: 0.875rem;
+    font-size: 1rem;
+    font-weight: 500;
     color: var(--text-light);
     margin-bottom: 24px;
 }
@@ -385,15 +395,16 @@ a {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    padding: 14px 28px;
+    gap: 10px;
+    padding: 16px 32px;
     border-radius: var(--radius-md);
     font-family: var(--font-primary);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     cursor: pointer;
     transition: var(--transition-normal);
     border: none;
+    letter-spacing: 0.01em;
 }
 
 .btn-primary {
@@ -404,7 +415,7 @@ a {
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: var(--shadow-lg), 0 0 20px rgba(14, 165, 233, 0.3);
+    box-shadow: var(--shadow-lg), 0 0 25px rgba(12, 74, 110, 0.35);
 }
 
 .btn-secondary {
@@ -443,7 +454,7 @@ a {
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     transition: var(--transition-normal);
-    border: 1px solid rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(12, 74, 110, 0.1);
 }
 
 .product-card:hover {
@@ -519,17 +530,18 @@ a {
 }
 
 .product-tagline {
-    font-size: 1.05rem;
-    color: var(--text-light);
+    font-size: 1.15rem;
+    color: var(--accent-gold);
     margin-bottom: 16px;
     font-style: italic;
+    font-weight: 500;
 }
 
 .product-description {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: var(--text-light);
     margin-bottom: 16px;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
 .product-benefits {
@@ -544,21 +556,21 @@ a {
 
 .product-benefits li {
     position: relative;
-    padding-left: 24px;
-    margin-bottom: 10px;
-    font-size: 0.95rem;
+    padding-left: 26px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
     color: var(--text-light);
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 .product-benefits li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 8px;
-    height: 8px;
-    background: var(--accent-teal);
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-gold);
     border-radius: 50%;
 }
 
@@ -570,11 +582,12 @@ a {
 }
 
 .ingredient-tag {
-    padding: 4px 10px;
+    padding: 6px 14px;
     background: var(--light-gray);
     border-radius: var(--radius-sm);
-    font-size: 0.75rem;
-    color: var(--text-light);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-dark);
 }
 
 .product-footer {
@@ -779,10 +792,11 @@ a {
 }
 
 .ingredient-subtitle {
-    font-size: 0.9rem;
-    color: var(--text-light);
+    font-size: 1rem;
+    color: var(--accent-gold);
     font-style: italic;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
+    font-weight: 500;
 }
 
 .ingredient-benefits {
@@ -791,20 +805,21 @@ a {
 
 .ingredient-benefits li {
     position: relative;
-    padding-left: 24px;
-    margin-bottom: 10px;
-    font-size: 0.9rem;
+    padding-left: 26px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
     color: var(--text-light);
+    line-height: 1.6;
 }
 
 .ingredient-benefits li::before {
     content: '';
     position: absolute;
     left: 0;
-    top: 8px;
-    width: 8px;
-    height: 8px;
-    background: var(--accent-teal);
+    top: 10px;
+    width: 10px;
+    height: 10px;
+    background: var(--accent-gold);
     border-radius: 50%;
 }
 
