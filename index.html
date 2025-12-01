@@ -77,9 +77,11 @@
             <nav class="nav">
                 <a href="index.html" class="logo">
                     <div class="logo-icon">
-                        <!-- Custom Cabo Health Icon - Wave + Medical Cross -->
+                        <!-- Medical Cross with DNA helix -->
                         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M2 12c1.5-2 3-3 4.5-3s3 1.5 4.5 3 3 3 4.5 3 3-1 4.5-3M11 7h2v4h4v2h-4v4h-2v-4H7v-2h4V7z" fill="currentColor"/>
+                            <rect x="9" y="3" width="6" height="18" rx="1" fill="currentColor"/>
+                            <rect x="3" y="9" width="18" height="6" rx="1" fill="currentColor"/>
+                            <circle cx="12" cy="12" r="3" fill="none" stroke="currentColor" stroke-width="0.5" opacity="0.6"/>
                         </svg>
                     </div>
                     <span class="logo-text">Cabo Health</span>
@@ -89,6 +91,7 @@
                     <li><a href="#peptides" data-lang="en">Peptides</a><a href="#peptides" data-lang="es">Péptidos</a></li>
                     <li><a href="products/bioregulators.html" data-lang="en">Bioregulators</a><a href="products/bioregulators.html" data-lang="es">Biorreguladores</a></li>
                     <li><a href="#iv-therapy" data-lang="en">IV Therapy</a><a href="#iv-therapy" data-lang="es">Terapia IV</a></li>
+                    <li><a href="#rejuvenation-plan" data-lang="en">Rejuvenation Plan</a><a href="#rejuvenation-plan" data-lang="es">Plan Rejuvenecimiento</a></li>
                 </ul>
                 <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
                     <span></span>
@@ -263,6 +266,41 @@
                     <a href="#iv-products" class="btn btn-primary">
                         <span data-lang="en">View Products</span>
                         <span data-lang="es">Ver Productos</span>
+                    </a>
+                </div>
+
+                <!-- Rejuvenation Plan Category -->
+                <div class="category-card" id="rejuvenation-plan">
+                    <div class="category-icon">
+                        <!-- DNA/Telomere rejuvenation icon -->
+                        <svg viewBox="0 0 64 64" fill="currentColor">
+                            <circle cx="32" cy="32" r="20" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M32 12v40" stroke="currentColor" stroke-width="2"/>
+                            <path d="M22 18c5 4 15 4 20 0" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M22 28c5-4 15-4 20 0" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M22 38c5 4 15 4 20 0" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <path d="M22 48c5-4 15-4 20 0" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <circle cx="32" cy="32" r="4" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>
+                        <span data-lang="en">Rejuvenation Plan</span>
+                        <span data-lang="es">Plan de Rejuvenecimiento</span>
+                    </h3>
+                    <p>
+                        <span data-lang="en">Personalized cyclic bioregulator peptide protocol based on telomere and epigenetic DNA age testing. A comprehensive multi-year program.</span>
+                        <span data-lang="es">Protocolo cíclico y personalizado de péptidos biorreguladores basado en pruebas de telómeros y edad epigenética del ADN. Un programa integral de varios años.</span>
+                    </p>
+                    <span class="category-count">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/>
+                        </svg>
+                        <span data-lang="en">5-Step Protocol</span>
+                        <span data-lang="es">Protocolo de 5 Pasos</span>
+                    </span>
+                    <a href="#rejuvenation-details" class="btn btn-primary">
+                        <span data-lang="en">Learn More</span>
+                        <span data-lang="es">Saber Más</span>
                     </a>
                 </div>
             </div>
@@ -975,6 +1013,134 @@
                         <li data-lang="es">Ayuda a combatir los efectos dañinos del estrés y la ansiedad</li>
                         <li data-lang="en">Balances free radicals with antioxidants</li>
                         <li data-lang="es">Equilibra los radicales libres con antioxidantes</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rejuvenation Plan Details Section -->
+    <section class="ingredients-section" id="rejuvenation-details">
+        <div class="container">
+            <div class="section-header">
+                <h2>
+                    <span data-lang="en">Rejuvenation Plan - 5-Step Protocol</span>
+                    <span data-lang="es">Plan de Rejuvenecimiento - Protocolo de 5 Pasos</span>
+                </h2>
+                <p>
+                    <span data-lang="en">At Cabo Health, we implement a comprehensive rejuvenation program using cyclic bioregulator peptides based on telomere and epigenetic DNA age testing. This multi-year protocol is designed to optimize cellular regeneration and biological age reversal.</span>
+                    <span data-lang="es">En Cabo Health llevamos a cabo un programa integral de rejuvenecimiento utilizando péptidos biorreguladores cíclicos basados en pruebas de telómeros y edad epigenética del ADN. Este protocolo de varios años está diseñado para optimizar la regeneración celular y revertir la edad biológica.</span>
+                </p>
+            </div>
+
+            <div class="ingredients-grid">
+                <!-- Step 1: Initial Evaluation -->
+                <div class="ingredient-card">
+                    <div class="ingredient-header">
+                        <div>
+                            <h4 data-lang="en">Step 1: Initial DNA Evaluation</h4>
+                            <h4 data-lang="es">Paso 1: Evaluación Inicial de ADN</h4>
+                            <p class="ingredient-subtitle" data-lang="en">Telomeres & Epigenetic Age</p>
+                            <p class="ingredient-subtitle" data-lang="es">Telómeros y Edad Epigenética</p>
+                        </div>
+                    </div>
+                    <ul class="ingredient-benefits">
+                        <li data-lang="en">Comprehensive DNA testing to establish baseline biological age</li>
+                        <li data-lang="es">Pruebas completas de ADN para establecer la edad biológica base</li>
+                        <li data-lang="en">Telomere length measurement - key biomarker of cellular aging</li>
+                        <li data-lang="es">Medición de la longitud de los telómeros - biomarcador clave del envejecimiento celular</li>
+                        <li data-lang="en">Epigenetic clock analysis to determine true biological age</li>
+                        <li data-lang="es">Análisis del reloj epigenético para determinar la verdadera edad biológica</li>
+                        <li data-lang="en">Personalized assessment of aging markers and health status</li>
+                        <li data-lang="es">Evaluación personalizada de marcadores de envejecimiento y estado de salud</li>
+                    </ul>
+                </div>
+
+                <!-- Step 2: Personalized Peptide Selection -->
+                <div class="ingredient-card">
+                    <div class="ingredient-header">
+                        <div>
+                            <h4 data-lang="en">Step 2: Personalized Peptide Selection</h4>
+                            <h4 data-lang="es">Paso 2: Selección Personalizada de Péptidos</h4>
+                            <p class="ingredient-subtitle" data-lang="en">5-7 Peptides per Month</p>
+                            <p class="ingredient-subtitle" data-lang="es">5-7 Péptidos por Mes</p>
+                        </div>
+                    </div>
+                    <ul class="ingredient-benefits">
+                        <li data-lang="en">Custom selection of 5-7 bioregulator peptides based on your test results</li>
+                        <li data-lang="es">Selección personalizada de 5-7 péptidos biorreguladores basada en tus resultados</li>
+                        <li data-lang="en">Peptides targeting specific organ systems that need support</li>
+                        <li data-lang="es">Péptidos dirigidos a sistemas de órganos específicos que necesitan apoyo</li>
+                        <li data-lang="en">Combination optimized for maximum synergistic effect</li>
+                        <li data-lang="es">Combinación optimizada para máximo efecto sinérgico</li>
+                        <li data-lang="en">Regular adjustments based on progress and response</li>
+                        <li data-lang="es">Ajustes regulares basados en el progreso y la respuesta</li>
+                    </ul>
+                </div>
+
+                <!-- Step 3: Pulse Scheme -->
+                <div class="ingredient-card">
+                    <div class="ingredient-header">
+                        <div>
+                            <h4 data-lang="en">Step 3: "Pulse" Scheme</h4>
+                            <h4 data-lang="es">Paso 3: Esquema de "Pulsos"</h4>
+                            <p class="ingredient-subtitle" data-lang="en">10 Days ON / 20 Days OFF</p>
+                            <p class="ingredient-subtitle" data-lang="es">10 Días ON / 20 Días OFF</p>
+                        </div>
+                    </div>
+                    <ul class="ingredient-benefits">
+                        <li data-lang="en">Cyclic administration: 10 days of peptide treatment</li>
+                        <li data-lang="es">Administración cíclica: 10 días de tratamiento con péptidos</li>
+                        <li data-lang="en">Followed by 20 days rest period for cellular integration</li>
+                        <li data-lang="es">Seguido de 20 días de descanso para integración celular</li>
+                        <li data-lang="en">Optimizes receptor sensitivity and prevents tolerance</li>
+                        <li data-lang="es">Optimiza la sensibilidad de los receptores y previene la tolerancia</li>
+                        <li data-lang="en">Allows body to naturally consolidate regenerative effects</li>
+                        <li data-lang="es">Permite al cuerpo consolidar naturalmente los efectos regenerativos</li>
+                    </ul>
+                </div>
+
+                <!-- Step 4: Program Duration -->
+                <div class="ingredient-card">
+                    <div class="ingredient-header">
+                        <div>
+                            <h4 data-lang="en">Step 4: Program Duration</h4>
+                            <h4 data-lang="es">Paso 4: Duración del Programa</h4>
+                            <p class="ingredient-subtitle" data-lang="en">3-4 Year Commitment</p>
+                            <p class="ingredient-subtitle" data-lang="es">Compromiso de 3-4 Años</p>
+                        </div>
+                    </div>
+                    <ul class="ingredient-benefits">
+                        <li data-lang="en">Comprehensive 3-4 year program for significant results</li>
+                        <li data-lang="es">Programa integral de 3-4 años para resultados significativos</li>
+                        <li data-lang="en">Gradual and sustained cellular regeneration over time</li>
+                        <li data-lang="es">Regeneración celular gradual y sostenida a lo largo del tiempo</li>
+                        <li data-lang="en">Long-term approach ensures deep biological changes</li>
+                        <li data-lang="es">El enfoque a largo plazo asegura cambios biológicos profundos</li>
+                        <li data-lang="en">Continuous monitoring and protocol optimization throughout</li>
+                        <li data-lang="es">Monitoreo continuo y optimización del protocolo durante todo el programa</li>
+                    </ul>
+                </div>
+
+                <!-- Step 5: Follow-up Testing -->
+                <div class="ingredient-card">
+                    <div class="ingredient-header">
+                        <div>
+                            <h4 data-lang="en">Step 5: Biological Age Follow-up</h4>
+                            <h4 data-lang="es">Paso 5: Seguimiento de Edad Biológica</h4>
+                            <p class="ingredient-subtitle" data-lang="en">Progress Verification</p>
+                            <p class="ingredient-subtitle" data-lang="es">Verificación de Progreso</p>
+                        </div>
+                    </div>
+                    <ul class="ingredient-benefits">
+                        <li data-lang="en">Periodic biological age testing to track improvements</li>
+                        <li data-lang="es">Pruebas periódicas de edad biológica para rastrear mejoras</li>
+                        <li data-lang="en">Telomere length comparison with baseline measurements</li>
+                        <li data-lang="es">Comparación de longitud de telómeros con mediciones iniciales</li>
+                        <li data-lang="en">Epigenetic age verification to confirm rejuvenation</li>
+                        <li data-lang="es">Verificación de edad epigenética para confirmar rejuvenecimiento</li>
+                        <li data-lang="en">Protocol adjustments based on measured results</li>
+                        <li data-lang="es">Ajustes del protocolo basados en resultados medidos</li>
                     </ul>
                 </div>
             </div>
